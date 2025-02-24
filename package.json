@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@primeuix/themes": "^1.0.0-rc.1",
+    "nuxt": "^3.15.4",
+    "nuxt-svgo": "^4.0.14",
+    "primevue": "^4.2.5",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
+    "@nuxt/eslint": "^1.1.0",
+    "@primevue/nuxt-module": "^4.2.5",
+    "eslint": "^9.21.0",
+    "eslint-plugin-format": "^1.0.1",
+    "sass": "^1.85.0"
+  }
+}
