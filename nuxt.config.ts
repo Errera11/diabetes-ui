@@ -4,7 +4,12 @@ import Lara from '@primeuix/themes/nora'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@primevue/nuxt-module', 'nuxt-svgo', '@nuxt/eslint'],
+  modules: [
+    '@primevue/nuxt-module',
+    'nuxt-svgo',
+    '@nuxt/eslint',
+    'nuxt-swiper',
+  ],
   primevue: {
     options: {
       theme: {
@@ -12,5 +17,13 @@ export default defineNuxtConfig({
       },
     },
   },
-  css: ['~/assets/styles/index.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/styles/index.scss";',
+        },
+      },
+    },
+  },
 })

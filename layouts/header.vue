@@ -20,10 +20,30 @@ const links = [
     link: '/',
   },
 ]
+
+const isHeaderVisible = ref(true)
+let prevScroll = 0
+function onScroll() {
+  const scroll = window.scrollY
+  if (prevScroll > scroll) {
+    isHeaderVisible.value = true
+  }
+  else if (scroll > 200) {
+    isHeaderVisible.value = false
+  }
+
+  prevScroll = scroll
+}
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ header_visible: isHeaderVisible }">
     <div class="header__content largeContainer">
       <img class="header__logo" src="~/public/img/logo/logo.png" alt="logo">
       <ul class="header__links">
@@ -39,6 +59,16 @@ const links = [
   .header {
     position: fixed;
     width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    top: -200px;
+    transition: top .3s ease-in-out;
+    z-index: 10;
+
+    &_visible {
+      top: 0;
+    }
+
     &__content {
       padding: 15px 0;
       display: flex;

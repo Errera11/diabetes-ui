@@ -8,7 +8,7 @@ defineProps<IProps>()
 
 <template>
   <Button
-    variant="link" :label="label" :href="link" rel="noopener" :pt="{
+    variant="link" :label="label" :href="link" :pt="{
       label: {
         class: 'linkButton',
       },
@@ -17,10 +17,12 @@ defineProps<IProps>()
   />
 </template>
 
-<style>
-  .linkButton {
-    color: rgb(56, 56, 56);
-    border: rgb(56, 56, 56);
+<style lang="scss">
+@use "assets/styles/colors";
+
+.linkButton {
+    color: colors.$primary;
+    border: colors.$primary;
     font-family: 'Montserrat', 'sans-serif';
     font-weight: 500 !important;
   }

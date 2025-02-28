@@ -13,11 +13,15 @@
   },
   "dependencies": {
     "@primeuix/themes": "^1.0.0-rc.1",
+    "@vee-validate/zod": "^4.15.0",
     "nuxt": "^3.15.4",
     "nuxt-svgo": "^4.0.14",
+    "nuxt-swiper": "^2.0.0",
     "primevue": "^4.2.5",
+    "vee-validate": "^4.15.0",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.3.0",
