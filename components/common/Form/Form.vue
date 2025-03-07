@@ -45,7 +45,7 @@ function onSubmit(values) {
     <FormLayout :on-back="prevStep">
       <template #content>
         <Form id="form" :validation-schema="currentValidationSchema" :keep-values="true" style="position: relative" @submit="onSubmit">
-          <Transition tag="div" component="div" style="position: absolute; width: 100%">
+          <Transition tag="div" component="div">
             <FormStepOne v-if="currentStep === 1" />
             <FormStepTwo v-else-if="currentStep === 2" />
           </Transition>
@@ -67,11 +67,13 @@ function onSubmit(values) {
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease;
+  position: static;
 }
 
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+  position: absolute;
 }
 
 .tips-enter-active,

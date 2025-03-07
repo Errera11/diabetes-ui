@@ -12,7 +12,7 @@ defineProps<IProps>()
     <Accordion
       v-for="(item, idx) of items" :key="idx" :value="idx" class="customAccordion"
     >
-      <AccordionPanel :value="idx">
+      <AccordionPanel>
         <AccordionHeader>{{ item.label }}</AccordionHeader>
         <AccordionContent>
           <Divider />

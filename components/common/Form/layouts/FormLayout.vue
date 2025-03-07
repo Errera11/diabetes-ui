@@ -26,6 +26,11 @@ const currentStep = inject<number>('CURRENT_STEP')
         </slot>
       </div>
       <div class="formLayout__formWrapper">
+          <Button v-if="currentStep > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack">
+              <BackArrow />
+              <span>Назад</span>
+          </Button>
+
         <div class="formLayout__form">
           <slot name="content" />
         </div>
@@ -35,11 +40,6 @@ const currentStep = inject<number>('CURRENT_STEP')
         </div>
       </div>
     </div>
-
-    <Button v-if="currentStep > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack">
-      <BackArrow />
-      <span>Назад</span>
-    </Button>
   </div>
 </template>
 
@@ -71,6 +71,7 @@ const currentStep = inject<number>('CURRENT_STEP')
       color: grey;
       background: none !important;
       --p-button-text-primary-color: colors.$primary;
+      z-index: 10;
     }
 
     &__header {
@@ -85,15 +86,15 @@ const currentStep = inject<number>('CURRENT_STEP')
     }
 
     &__formWrapper {
-      padding: 40px 100px;
+      padding: 40px 35px;
       background: white;
       border-radius: 20px;
       flex: 1 0 60%;
       min-height: 40px;
+      position: relative;
     }
 
     &__form {
-      min-height: 400px;
       position: relative;
     }
 

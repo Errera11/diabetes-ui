@@ -11,7 +11,7 @@ const { value: heartDisease, errorMessage: heartError } = useField<boolean>(step
 </script>
 
 <template>
-  <div>
+  <div class="formStepTwo">
     <CustomInput id="height" v-model="cholLevel" mask="*.** ммоль/л" label="Уровень холестерина" :error-message="cholError" />
 
     <CustomSelectButton v-model="heartDisease" label="Имеются ли у вас проблемы с сердцем?" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" />
@@ -21,5 +21,9 @@ const { value: heartDisease, errorMessage: heartError } = useField<boolean>(step
 </template>
 
 <style lang="scss" scoped>
-
+.formStepTwo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
 </style>

@@ -14,15 +14,31 @@ interface IProps {
 </script>
 
 <template>
-  <div>
-    <label>{{ label }}</label>
+  <div class="customSelect">
+    <label class="customSelect__label">{{ label }}</label>
 
-    <SelectButton v-model="model" :options="options" option-value="value" option-label="name" :invalid="!!errorMessage" />
+    <SelectButton class="selectButton" v-model="model" :options="options" option-value="value" option-label="name" :invalid="!!errorMessage" />
 
-    <CustomErrorMessage :error-message="errorMessage" />
+    <CustomErrorMessage :error-message="errorMessage" class="customSelect__controls"/>
   </div>
 </template>
 
 <style lang="scss" scoped>
+.customSelect {
+  display: flex;
+  flex-direction: column;
 
+  &__label {
+    margin-bottom: 8px;
+  }
+}
+
+.selectButton {
+  display: flex;
+  --p-selectbutton-border-radius: 8px;
+
+  & > * {
+    flex: 1 0;
+  }
+}
 </style>

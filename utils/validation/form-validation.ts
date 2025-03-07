@@ -1,10 +1,11 @@
 import { toTypedSchema } from '@vee-validate/zod'
-import zod from 'zod'
+import * as zod from 'zod'
 
 export const stepOneInputs = {
   bloodPressure: 'bloodPressure',
   birthdate: 'birthdate',
   height: 'height',
+    weight: 'weight',
 }
 export const stepOneSchema = toTypedSchema(
   zod.object({
