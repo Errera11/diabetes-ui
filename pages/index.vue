@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import AnimatedBlock from '~/components/pages/index/AnimatedBlock/AnimatedBlock.vue'
-import FormBlock from '~/components/pages/index/FormBlock/FormBlock.vue'
-import InfoBlock from '~/components/pages/index/InfoBlock/InfoBlock.vue'
-import TipsBlock from '~/components/pages/index/TipsBlock/TipsBlock.vue'
+import AnimatedBlock from '../components/pages/index/AnimatedBlock/AnimatedBlock.vue'
+import FormBlock from '../components/pages/index/FormBlock/FormBlock.vue'
+import InfoBlock from '../components/pages/index/InfoBlock/InfoBlock.vue'
+import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
 </script>
 
 <!-- https://ru.wix.com/website-template/view/html/2187?originUrl=https%3A%2F%2Fru.wix.com%2Fwebsite%2Ftemplates%2Fhtml%2Fhealth-wellness%2F4&tpClick=view_button&esi=28bdc342-c2d1-4c46-90d1-efb5e6499308 -->

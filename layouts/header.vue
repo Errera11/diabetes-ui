@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import '~/assets/styles/index.scss'
-import LinkButton from '~/components/common/LinkButton.vue'
+import LinkButton from '../components/common/LinkButton.vue'
 
 const links = [
   {
@@ -45,7 +45,7 @@ onUnmounted(() => {
 <template>
   <header class="header" :class="{ header_visible: isHeaderVisible }">
     <div class="header__content largeContainer">
-      <img class="header__logo" src="~/public/img/logo/logo.png" alt="logo">
+      <img class="header__logo" src="../public/img/logo/logo.png" alt="logo">
       <ul class="header__links">
         <li v-for="item in links" :key="item.label">
           <LinkButton :link="item.link" :label="item.label" />
