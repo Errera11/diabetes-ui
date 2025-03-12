@@ -25,7 +25,7 @@ const isHeaderVisible = ref(true)
 let prevScroll = 0
 function onScroll() {
   const scroll = window.scrollY
-  if (prevScroll > scroll) {
+  if (prevScroll > scroll && window.scrollY < 1000) {
     isHeaderVisible.value = true
   }
   else if (scroll > 200) {
@@ -45,7 +45,7 @@ onUnmounted(() => {
 <template>
   <header class="header" :class="{ header_visible: isHeaderVisible }">
     <div class="header__content largeContainer">
-      <img class="header__logo" src="../public/img/logo/logo.png" alt="logo">
+      <img class="header__logo" src="/public/img/logo/logo.png" alt="logo">
       <ul class="header__links">
         <li v-for="item in links" :key="item.label">
           <LinkButton :link="item.link" :label="item.label" />
@@ -57,32 +57,32 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
   .header {
-    position: fixed;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.9);
-    top: -200px;
-    transition: top .3s ease-in-out;
-    z-index: 10;
+  position: fixed;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+  top: -200px;
+  transition: top 0.3s ease-in-out;
+  z-index: 100;
 
-    &_visible {
-      top: 0;
-    }
-
-    &__content {
-      padding: 15px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      align-items: center;
-    }
-
-    &__links {
-      display: flex;
-    }
-
-    &__logo {
-      height: 40px;
-    }
+  &_visible {
+    top: 0;
   }
+
+  &__content {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  &__links {
+    display: flex;
+  }
+
+  &__logo {
+    height: 40px;
+  }
+}
 </style>

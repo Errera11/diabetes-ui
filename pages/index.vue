@@ -51,5 +51,6 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
 }
 .formblock {
   margin-top: var(--page-margin);
+  background: rgba(139, 115, 85, 0.45);
 }
 </style>

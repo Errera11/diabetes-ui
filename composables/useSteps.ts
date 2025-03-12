@@ -15,5 +15,7 @@ export function useSteps({ totalSteps }: IProps) {
     }
   }
 
-  return { currentStep, nextStep, prevStep }
+  const isLastStep = computed(() => currentStep.value === totalSteps)
+
+  return { currentStep, nextStep, prevStep, isLastStep }
 }

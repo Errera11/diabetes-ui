@@ -24,6 +24,7 @@ const model = defineModel<string>()
         v-model="model"
         :invalid="!!errorMessage"
         class="customInput"
+        fluid
       />
 
       <InputMask
@@ -33,6 +34,7 @@ const model = defineModel<string>()
         :mask="mask"
         :invalid="!!errorMessage"
         class="customInput"
+        fluid
       />
 
       <label :for="id" class="label">{{ label }}</label>
@@ -46,7 +48,7 @@ const model = defineModel<string>()
 @use 'assets/styles/colors';
 
 .customInput {
-  transition: all .2s;
+  transition: all 0.2s;
   //border: 1px solid colors.$primary !important;
   border-radius: 8px;
   --p-inputtext-focus-ring-color: colors.$primary;

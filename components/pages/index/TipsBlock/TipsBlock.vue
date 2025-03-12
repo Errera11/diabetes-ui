@@ -9,16 +9,16 @@ import 'swiper/swiper-bundle.css'
 
 const tips = [
   {
-    header: 'Testimonials',
-    description: 'ccccccccccccccccccccccccccccccccccccur services. Let your customers review you and tell their friends how great you are',
+    header: 'Как снизить риск диабета?',
+    description: 'Здоровое питание и регулярная физическая активность — важнейшие шаги в профилактике диабета. Соблюдение правильного рациона и поддержание физической активности помогут вам не только улучшить общее самочувствие, но и значительно снизить риск развития заболевания.',
   },
   {
-    header: 'qqqqqqqqqqqqqqqq',
-    description: 'wwwwwwwwwwwwwwwwwwwwwwwservices. Let your customers review you and tell their friends how great you are',
+    header: 'Регулярные проверки — ключ к ранней диагностике',
+    description: 'Даже если у вас нет явных симптомов, регулярное обследование у врача может помочь выявить признаки диабета на ранних стадиях. Чем раньше вы узнаете о возможных рисках, тем проще будет предотвратить развитие болезни.',
   },
   {
-    header: 'aaaaaaaaaaaaaaaaaaaa',
-    description: 'zffffffffffffffffffffffff tell their friends how great you are',
+    header: 'Умеренность — залог здоровья',
+    description: 'Ожирение и избыточный вес — основные факторы риска для развития диабета. Постарайтесь поддерживать здоровый вес, избегая чрезмерного потребления высококалорийных и высокогликемических продуктов.',
   },
 ]
 const containerRef = ref(null)
@@ -100,7 +100,8 @@ useSwiper(containerRef, {
 .swiper {
   cursor: grab;
 
-  &::part(bullet), &::part(bullet-active) {
+  &::part(bullet),
+  &::part(bullet-active) {
     height: 6px;
     overflow: hidden;
     background: colors.$primary;
@@ -108,11 +109,11 @@ useSwiper(containerRef, {
   &::part(bullet) {
     width: 10px;
     border-radius: 40%;
-    transition: width .2s;
+    transition: width 0.2s;
   }
   &::part(bullet-active) {
     width: 18px;
-    transition: width .2s;
+    transition: width 0.2s;
     background-color: colors.$primary;
     border-radius: 35%;
   }

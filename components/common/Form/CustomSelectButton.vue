@@ -4,22 +4,27 @@ import { defineModel } from 'vue'
 
 import CustomErrorMessage from '~/components/common/Form/CustomErrorMessage.vue'
 
-defineProps<IProps>()
-const model = defineModel<boolean>()
 interface IProps {
   options: { name: string, value: string | boolean }[]
   errorMessage: string | undefined
   label: string
+  labelDescription?: string
 }
+defineProps<IProps>()
+const model = defineModel<boolean>()
 </script>
 
 <template>
   <div class="customSelect">
-    <label class="customSelect__label">{{ label }}</label>
+    <span class="customSelect__labelWrapper">
+      <label class="customSelect__label">{{ label }}</label>
 
-    <SelectButton class="selectButton" v-model="model" :options="options" option-value="value" option-label="name" :invalid="!!errorMessage" />
+      <span v-if="labelDescription" v-tooltip.top="labelDescription" class="pi pi-question-circle" style="cursor: pointer" />
+    </span>
 
-    <CustomErrorMessage :error-message="errorMessage" class="customSelect__controls"/>
+    <SelectButton v-model="model" class="selectButton" :options="options" option-value="value" option-label="name" :invalid="!!errorMessage" />
+
+    <CustomErrorMessage :error-message="errorMessage" class="customSelect__controls" />
   </div>
 </template>
 
@@ -28,7 +33,10 @@ interface IProps {
   display: flex;
   flex-direction: column;
 
-  &__label {
+  &__labelWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 8px;
   }
 }

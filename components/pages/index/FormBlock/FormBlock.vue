@@ -3,9 +3,7 @@ import Form from '~/components/common/Form/Form.vue'
 </script>
 
 <template>
-  <div>
-    <Form />
-  </div>
+  <Form />
 </template>
 
 <style lang="scss" scoped>
