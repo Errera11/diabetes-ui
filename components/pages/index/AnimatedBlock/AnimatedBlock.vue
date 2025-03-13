@@ -3,6 +3,18 @@ import Button from 'primevue/button'
 import Arrow from 'public/icons/arrow.svg'
 
 import Typography from '~/components/common/Typography.vue'
+
+function onHerBtnClick() {
+  const form = document.querySelector('#form')
+
+  if (form) {
+    form.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    })
+  }
+}
 </script>
 
 <template>
@@ -19,7 +31,7 @@ import Typography from '~/components/common/Typography.vue'
       </div>
 
       <div class="animatedBlock__navigation">
-        <Button class="animatedBlock__navigationButton" label="Попробовать" severity="primary" />
+        <Button class="animatedBlock__navigationButton" label="Попробовать" severity="primary" @click="onHerBtnClick" />
 
         <Arrow class="animatedBlock__arrow" />
       </div>

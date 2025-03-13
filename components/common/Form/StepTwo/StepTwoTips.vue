@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import CustomCard from '~/components/common/Form/CustomCard.vue'
+
 const items = {
   card: {
     title: 'Почему эти данные важны?',
@@ -8,17 +10,9 @@ const items = {
 </script>
 
 <template>
-  <Card>
-    <template #title>
-      {{ items.card.title }}
-    </template>
-    <template #content>
-      <p>
-        {{ items.card.description }}
-      </p>
-    </template>
-  </Card>
+  <CustomCard :title="items.card.title" :description="items.card.description" />
 </template>
 
 <style lang="scss" scoped>
+
 </style>

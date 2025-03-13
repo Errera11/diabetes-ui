@@ -23,6 +23,8 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
 </template>
 
 <style lang="scss">
+@use '/assets/styles/colors';
+
 :root {
   --page-margin: 50px;
 }
@@ -36,7 +38,7 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
 }
 
 .overflowbg {
-  background: rgb(139, 115, 85);
+  background: colors.$brown;
   width: 100%;
   height: 250px;
   bottom: 0;
@@ -44,13 +46,13 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
   z-index: -1;
 }
 .tipblock {
-  background: rgb(139, 115, 85);
+  background: colors.$brown;
   padding-top: 150px;
   padding-bottom: 100px;
   width: 100%;
 }
 .formblock {
   margin-top: var(--page-margin);
-  background: rgba(139, 115, 85, 0.45);
+  background: colors.$light-brown;
 }
 </style>

@@ -4,8 +4,7 @@ import type { IForm } from '~/utils/validation/form-validation'
 import { useMutation } from '@tanstack/vue-query'
 import { Form, useForm } from 'vee-validate'
 import FormLayout from '~/components/common/Form/layouts/FormLayout.vue'
-import FormStepFive from '~/components/common/Form/StepFive/FormStepFive.vue'
-import FormStepFour from '~/components/common/Form/StepFour/FormStepFour.vue'
+import FormStepFourFive from '~/components/common/Form/StepFourFive/FormStepFourFive.vue'
 import FormStepOne from '~/components/common/Form/StepOne/FormStepOne.vue'
 import StepOneTips from '~/components/common/Form/StepOne/StepOneTips.vue'
 import FormStepThree from '~/components/common/Form/StepThree/FormStepThree.vue'
@@ -104,8 +103,7 @@ function onSubmit(values: any) {
             <FormStepOne v-if="currentStep === 1" />
             <FormStepTwo v-else-if="currentStep === 2" />
             <FormStepThree v-else-if="currentStep === 3" />
-            <FormStepFour v-else-if="currentStep === 4" />
-            <FormStepFive v-else-if="currentStep === 5" />
+            <FormStepFourFive v-else-if="[4, 5].includes(currentStep)" />
           </Transition>
         </Form>
       </template>

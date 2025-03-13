@@ -33,7 +33,7 @@ const totalSteps = inject<number>('TOTAL_STEPS')
           <span>Назад</span>
         </Button>
 
-        <Stepper class="formLayout__stepper" :current-step="currentStep!" :total-steps="totalSteps!" />
+        <Stepper class="formLayout__stepper" :current-step="currentStep!" :total-steps="totalSteps! - 1" />
 
         <div class="formLayout__form">
           <slot name="content" />

@@ -13,10 +13,13 @@ const model = defineModel<Date>()
 
 <template>
   <div>
-    <FloatLabel variant="on">
-      <DatePicker id="birthdate" v-model="model" class="customPicker" input-class="customPicker" :invalid="!!errorMessage" />
-      <label for="birthdate" class="label">{{ label }}</label>
-    </FloatLabel>
+    <InputGroup>
+      <InputGroupAddon><span class="pi pi-calendar" /></InputGroupAddon>
+      <FloatLabel variant="on">
+        <DatePicker id="birthdate" v-model="model" class="customPicker" input-class="customPicker" :invalid="!!errorMessage" />
+        <label for="birthdate" class="label">{{ label }}</label>
+      </FloatLabel>
+    </InputGroup>
 
     <Message v-if="errorMessage" severity="error" variant="simple" size="small" class="errorMessage">
       {{ errorMessage }}

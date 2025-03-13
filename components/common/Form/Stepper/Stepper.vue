@@ -9,7 +9,7 @@ defineProps<IProps>()
 
 <template>
   <div class="stepper">
-    <div v-for="item in totalSteps" :key="item" class="stepper__item" :class="{ stepper_active: item <= currentStep }" :style="{ width: `calc(100% / ${totalSteps})` }">
+    <div v-for="item in totalSteps" :key="item" class="stepper__item" :class="{ stepper_active: item < currentStep }" :style="{ width: `calc(100% / ${totalSteps})` }">
       <div class="stepper__bar" />
 
       <sub class="stepper__sub">{{ `Шаг ${item}` }}</sub>

@@ -24,7 +24,7 @@ const { value: heartDisease, errorMessage: heartError } = useField<boolean>(step
 
     <CustomInput id="height" v-model="cholLevel" mask="*.** ммоль/л" label="Уровень холестерина" :error-message="cholError" />
 
-    <CustomInput id="bloodPressure" v-model="value" label="Давление" :error-message="errorMessage" />
+    <CustomInput id="bloodPressure" v-model="value" mask="*** мм рт. ст." label="Систолическое давление (верхнее)" :error-message="errorMessage" />
 
     <CustomSelectButton v-model="heartDisease" label="Имеются ли у вас проблемы с сердцем?" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" label-description="йойо" />
 
