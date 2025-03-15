@@ -12,6 +12,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.10.1",
     "@primeuix/themes": "^1.0.0-rc.1",
     "@primevue/themes": "^4.3.1",
     "@tanstack/vue-query": "^5.67.2",
@@ -19,6 +20,7 @@
     "nuxt": "^3.15.4",
     "nuxt-svgo": "^4.0.14",
     "nuxt-swiper": "^2.0.0",
+    "pinia": "^3.0.1",
     "primeicons": "^7.0.0",
     "primevue": "^4.2.5",
     "vee-validate": "^4.15.0",
@@ -32,7 +34,9 @@
     "eslint": "^8.55.0",
     "eslint-plugin-format": "^1.0.1",
     "globals": "^16.0.0",
-    "sass": "^1.85.0",
     "typescript": "^5.8.2"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

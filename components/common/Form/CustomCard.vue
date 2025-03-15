@@ -8,7 +8,7 @@ defineProps<IProps>()
 </script>
 
 <template>
-  <Card>
+  <Card class="customCard">
     <template #title>
       <span class="title">{{ title }} <span class="pi pi-info-circle" /></span>
     </template>
@@ -21,6 +21,10 @@ defineProps<IProps>()
 </template>
 
 <style lang="scss" scoped>
+.customCard {
+  border-radius: 20px;
+}
+
 .title {
   display: flex;
   align-items: center;

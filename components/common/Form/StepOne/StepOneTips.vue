@@ -2,10 +2,10 @@
 import CustomAccordion from '~/components/common/Form/CustomAccordion.vue'
 
 const items = [
-  { label: 'hey', content: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent' },
-  { label: 'hey', content: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent' },
-  { label: 'hey', content: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent' },
-  { label: 'hey', content: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent' },
+  { label: 'Советы по заполнению данных', content: 'Правильное заполнение данных о вашем возрасте, весе и дате рождения — ключ к точному расчету риска диабета. Эти параметры влияют на оценку состояния вашего организма, и важно вводить их корректно.' },
+  { label: 'Общие рекомендации', content: '<ul><li>Точность данных. Указывайте информацию о возрасте и весе максимально точно — это важно для правильного расчета.</li>\n'
+    + '<li>Не торопитесь. Убедитесь, что все поля заполнены верно перед переходом к следующему шагу.</li>\n'
+    + '<li>Конфиденциальность. Ваши данные будут использоваться исключительно для диагностики и расчетов, их безопасность гарантирована.</li></ul>' },
 ]
 </script>
 

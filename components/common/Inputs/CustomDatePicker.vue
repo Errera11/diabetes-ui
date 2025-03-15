@@ -16,7 +16,7 @@ const model = defineModel<Date>()
     <InputGroup>
       <InputGroupAddon><span class="pi pi-calendar" /></InputGroupAddon>
       <FloatLabel variant="on">
-        <DatePicker id="birthdate" v-model="model" class="customPicker" input-class="customPicker" :invalid="!!errorMessage" />
+        <DatePicker id="birthdate" v-model="model" panel-class="pickerPanel" class="customPicker" :invalid="!!errorMessage" />
         <label for="birthdate" class="label">{{ label }}</label>
       </FloatLabel>
     </InputGroup>
@@ -27,14 +27,24 @@ const model = defineModel<Date>()
   </div>
 </template>
 
+<style lang="scss">
+@use '/assets/styles/colors';
+
+.pickerPanel {
+  --p-datepicker-date-selected-background: #{colors.$brown};
+  --p-datepicker-month-selected-background: #{colors.$brown};
+  --p-datepicker-year-selected-background: #{colors.$brown};
+}
+</style>
+
 <style lang="scss" scoped>
-@use 'assets/styles/colors';
+@use '/assets/styles/colors';
 
 .customPicker {
-  --p-inputtext-focus-ring-color: colors.$primary !important;
-  height: 45px;
-  width: 100%;
-  --p-inputtext-border-radius: 8px;
+  --p-inputtext-hover-border-color: #{colors.$brown};
+  --p-inputtext-focus-border-color: #{colors.$brown};
+  --p-inputtext-focus-ring-color: #{colors.$brown};
+  --p-inputtext-focus-ring-shadow: none;
 }
 
 .label {

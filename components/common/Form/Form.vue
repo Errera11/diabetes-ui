@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import type { IForm } from '~/utils/validation/form-validation'
-
-import { useMutation } from '@tanstack/vue-query'
 import { Form, useForm } from 'vee-validate'
+import { usePostForm } from '~/api/usePostForm'
 import FormLayout from '~/components/common/Form/layouts/FormLayout.vue'
+import FormStepFinal from '~/components/common/Form/StepFinal/FormStepFinal.vue'
 import FormStepFourFive from '~/components/common/Form/StepFourFive/FormStepFourFive.vue'
+import StepFourFiveTips from '~/components/common/Form/StepFourFive/StepFourFiveTips.vue'
 import FormStepOne from '~/components/common/Form/StepOne/FormStepOne.vue'
 import StepOneTips from '~/components/common/Form/StepOne/StepOneTips.vue'
 import FormStepThree from '~/components/common/Form/StepThree/FormStepThree.vue'
+import StepThreeTips from '~/components/common/Form/StepThree/StepThreeTips.vue'
 import FormStepTwo from '~/components/common/Form/StepTwo/FormStepTwo.vue'
 import StepTwoTips from '~/components/common/Form/StepTwo/StepTwoTips.vue'
 import { useSteps } from '~/composables/useSteps'
@@ -19,7 +21,7 @@ import {
   stepTwoSchema,
 } from '~/utils/validation/form-validation'
 
-const totalSteps = 5
+const totalSteps = 6
 const { currentStep, nextStep, prevStep, isLastStep } = useSteps({ totalSteps })
 const formRef = useTemplateRef<HTMLElement | undefined>('form')
 provide('CURRENT_STEP', currentStep)
@@ -42,20 +44,10 @@ const currentValidationSchema = computed(() => {
   }
 })
 
+const store = useFormStore()
 const { errors } = useForm<IForm>()
-const config = useRuntimeConfig()
-const { mutate, isPending } = useMutation({ mutationFn: async (data: IForm) => {
-  const res = await fetch(`${config.public.MODEL_API_URL}/predict/`, {
-    body: JSON.stringify({
-      data,
-    }),
-    method: 'POST',
-  })
-  // console.log('res', res)
 
-  return res
-} })
-
+const { mutateAsync } = usePostForm()
 let formVals: IForm = { } as IForm
 function onSubmit(values: any) {
   formRef.value?.scrollIntoView({
@@ -63,21 +55,13 @@ function onSubmit(values: any) {
     block: 'center',
     inline: 'center',
   })
-  // console.log('formVals', formVals)
+
   formVals = {
     ...formVals,
     ...values,
   }
   if (isLastStep.value) {
-    // console.log('beforeMutate', {
-    //   ...formVals,
-    //   cholLevel: String(Number.parseFloat(formVals.cholLevel)),
-    //   height: String(Number.parseFloat(formVals.height)),
-    //   diffWalk: String(formVals.diffWalk ? 1 : 0),
-    //   heartDisease: String(formVals.heartDisease ? 1 : 0),
-    //   birthdate: new Date(formVals.birthdate).toISOString(),
-    // })
-    mutate({
+    mutateAsync({
       ...formVals,
       cholLevel: String(Number.parseFloat(formVals.cholLevel)),
       height: String(Number.parseInt(formVals.height)),
@@ -85,7 +69,13 @@ function onSubmit(values: any) {
       heartDisease: String(formVals.heartDisease ? 1 : 0),
       birthdate: new Date(formVals.birthdate).toISOString(),
       weight: String(Number.parseFloat(formVals.weight)),
+      bloodPressure: String(Number.parseFloat(formVals.bloodPressure)),
+    }).then((data) => {
+      store.setFormResult({
+        result: data.prediction[0],
+      })
     })
+
     return
   }
 
@@ -104,6 +94,7 @@ function onSubmit(values: any) {
             <FormStepTwo v-else-if="currentStep === 2" />
             <FormStepThree v-else-if="currentStep === 3" />
             <FormStepFourFive v-else-if="[4, 5].includes(currentStep)" />
+            <FormStepFinal v-else-if="currentStep === 6" />
           </Transition>
         </Form>
       </template>
@@ -112,6 +103,8 @@ function onSubmit(values: any) {
         <Transition name="tips" style="width: 100%;">
           <StepOneTips v-if="currentStep === 1" />
           <StepTwoTips v-else-if="currentStep === 2" />
+          <StepThreeTips v-else-if="currentStep === 3" />
+          <StepFourFiveTips v-else-if="[4, 5].includes(currentStep!)" />
         </Transition>
       </template>
     </FormLayout>
@@ -136,21 +129,22 @@ function onSubmit(values: any) {
 .tips-enter-to,
 .tips-leave-from {
   transform: translateY(0);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   opacity: 1;
   position: static;
 }
 
 .tips-enter-from,
 .tips-leave-to {
-  transform: translateY(20px);
-  transition: all 0.2s ease-in-out;
+  transform: translateY(80px);
+  transition: all 0.5s ease-in-out;
   opacity: 0;
   position: absolute;
 }
 
 .formContainer {
   position: relative;
+  min-height: 900px;
 
   &__tips {
     max-width: 100%;

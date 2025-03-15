@@ -1,18 +1,29 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import Button from 'primevue/button'
 import BackArrow from 'public/icons/back-arrow.svg'
-import { defineProps } from 'vue'
+import { computed, defineProps } from 'vue'
 
 import Stepper from '~/components/common/Form/Stepper/Stepper.vue'
 import Typography from '~/components/common/Typography.vue'
+import { useFormStore } from '~/stores/formStore'
 
 interface IProps {
   onBack: () => void
 }
 defineProps<IProps>()
 
-const currentStep = inject<number>('CURRENT_STEP')
+const currentStep = inject<Ref<number>>('CURRENT_STEP')
 const totalSteps = inject<number>('TOTAL_STEPS')
+
+const computedCurStep = computed(() => {
+  if (currentStep?.value === 4 || currentStep?.value === 5) {
+    return 4
+  }
+  return currentStep?.value
+})
+
+const store = useFormStore()
 </script>
 
 <template>
@@ -28,19 +39,19 @@ const totalSteps = inject<number>('TOTAL_STEPS')
         </slot>
       </div>
       <div class="formLayout__formWrapper">
-        <Button v-if="currentStep > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack">
+        <Button v-if="currentStep! > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack">
           <BackArrow />
           <span>Назад</span>
         </Button>
 
-        <Stepper class="formLayout__stepper" :current-step="currentStep!" :total-steps="totalSteps! - 1" />
+        <Stepper class="formLayout__stepper" :current-step="computedCurStep!" :total-steps="totalSteps! - 2" />
 
         <div class="formLayout__form">
           <slot name="content" />
         </div>
 
         <div class="formLayout__controlBtns">
-          <Button label="тык" type="submit" rounded fluid form="form" />
+          <Button :loading="store.isPending" class="formLayout__nextBtn" label="Продолжить" type="submit" fluid form="form" />
         </div>
       </div>
     </div>
@@ -48,7 +59,7 @@ const totalSteps = inject<number>('TOTAL_STEPS')
 </template>
 
 <style lang="scss" scoped>
-  @use 'assets/styles/colors';
+@use '/assets/styles/colors';
 
 .formLayout {
   padding: 100px 80px;
@@ -76,7 +87,7 @@ const totalSteps = inject<number>('TOTAL_STEPS')
     transition: all 0.2s;
     color: grey;
     background: none !important;
-    --p-button-text-primary-color: colors.$primary;
+    --p-button-text-primary-color: #{colors.$primary};
     z-index: 10;
   }
 
@@ -111,6 +122,9 @@ const totalSteps = inject<number>('TOTAL_STEPS')
     width: 100%;
     position: sticky;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
 </style>

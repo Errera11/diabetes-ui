@@ -22,19 +22,17 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
   </section>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '/assets/styles/colors';
 
-:root {
-  --page-margin: 50px;
-}
+$page-margin: 50px;
 
 .animatedblock {
   position: relative;
 }
 
 .infoblock {
-  margin-top: var(--page-margin);
+  margin-top: $page-margin;
 }
 
 .overflowbg {
@@ -52,7 +50,7 @@ import TipsBlock from '../components/pages/index/TipsBlock/TipsBlock.vue'
   width: 100%;
 }
 .formblock {
-  margin-top: var(--page-margin);
+  margin-top: $page-margin;
   background: colors.$light-brown;
 }
 </style>

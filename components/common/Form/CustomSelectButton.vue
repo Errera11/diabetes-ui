@@ -29,7 +29,11 @@ const model = defineModel<boolean>()
 </template>
 
 <style lang="scss" scoped>
+@use '/assets/styles/colors';
+
 .customSelect {
+  --p-togglebutton-checked-color: #{colors.$brown};
+  --p-togglebutton-checked-background: #{colors.$light-brown};
   display: flex;
   flex-direction: column;
 

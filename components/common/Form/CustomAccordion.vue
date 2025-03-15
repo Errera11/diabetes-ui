@@ -10,15 +10,16 @@ defineProps<IProps>()
 <template>
   <div class="customAccordionWrapper">
     <Accordion
-      v-for="(item, idx) of items" :key="idx" :value="idx" class="customAccordion"
+      v-for="(item, idx) of items"
+      :key="idx" :value="idx" class="customAccordion"
     >
-      <AccordionPanel>
-        <AccordionHeader>{{ item.label }}</AccordionHeader>
+      <AccordionPanel value="0">
+        <AccordionHeader class="customAccordion__header">
+          {{ item.label }}
+        </AccordionHeader>
         <AccordionContent>
           <Divider />
-          <p>
-            {{ item.content }}
-          </p>
+          <p v-html="item.content" />
         </AccordionContent>
       </AccordionPanel>
     </Accordion>
@@ -40,5 +41,10 @@ defineProps<IProps>()
   --p-accordion-header-border-width: 0px !important;
   --p-accordion-header-first-border-width: 0px !important;
   --p-accordion-content-border-width: 0px !important;
+
+  &__header {
+    height: 35px;
+    font-size: 18px;
+  }
 }
 </style>

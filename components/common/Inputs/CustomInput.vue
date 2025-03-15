@@ -49,15 +49,17 @@ const model = defineModel<string>()
 
 .customInput {
   transition: all 0.2s;
-  //border: 1px solid colors.$primary !important;
   border-radius: 8px;
-  --p-inputtext-focus-ring-color: colors.$primary;
   height: 45px;
   width: 100%;
+  --p-inputtext-hover-border-color: #{colors.$light-brown};
+  --p-inputtext-focus-border-color: #{colors.$brown};
+  --p-inputtext-focus-ring-color: #{colors.$brown};
+  --p-inputtext-focus-ring-shadow: none;
 }
 
 .label {
-  --p-floatlabel-focus-color: colors.$primary;
+  --p-floatlabel-focus-color: #{colors.$primary};
 }
 
 .errorMessage {
