@@ -4,7 +4,7 @@ import Typography from '~/components/common/Typography.vue'
 
 <template>
   <footer class="footer">
-    <Typography variant="h4" color="dark" class="powered">
+    <Typography variant="span" color="dark" class="powered">
       ©2035 by me. Powered and secured
     </Typography>
   </footer>

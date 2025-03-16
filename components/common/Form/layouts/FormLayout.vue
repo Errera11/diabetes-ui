@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import Button from 'primevue/button'
+import ProgressSpinner from 'primevue/progressspinner'
 import BackArrow from 'public/icons/back-arrow.svg'
 import { computed, defineProps } from 'vue'
 
@@ -39,7 +40,16 @@ const store = useFormStore()
         </slot>
       </div>
       <div class="formLayout__formWrapper">
-        <Button v-if="currentStep! > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack">
+        <div v-if="store.isPending" class="formLayout__pendingState">
+          <ProgressSpinner
+            class="formLayout__loader"
+          />
+        </div>
+
+        <Button
+          v-if="currentStep!
+            > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack"
+        >
           <BackArrow />
           <span>Назад</span>
         </Button>
@@ -125,6 +135,27 @@ const store = useFormStore()
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  &__pendingState {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(250, 243, 224, 0.7);
+    z-index: 111;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__loader {
+    --p-progressspinner-color-one: #{colors.$soft-beige};
+    --p-progressspinner-color-two: #{colors.$soft-brown};
+    --p-progressspinner-color-three: #{colors.$soft-green};
+    --p-progressspinner-color-four: #{colors.$soft-green};
   }
 }
 </style>

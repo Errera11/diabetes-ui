@@ -21,7 +21,7 @@ const currentStep = inject<number>('CURRENT_STEP')
       />
     </div>
 
-    <Transition name="finalSteps">
+    <Transition :name="currentStep === 5 ? 'finalStepsLeft' : 'finalStepsRight'">
       <FormStepFour v-if="currentStep === 4" />
 
       <FormStepFive v-else-if="currentStep === 5" />
@@ -60,20 +60,37 @@ const currentStep = inject<number>('CURRENT_STEP')
   }
 }
 
-.finalSteps-enter-active,
-.finalSteps-leave-active,
-.finalSteps-enter-to,
-.finalSteps-leave-from {
+.finalStepsLeft-enter-active,
+.finalStepsLeft-leave-active,
+.finalStepsLeft-enter-to,
+.finalStepsLeft-leave-from {
   position: static;
   transform: translateX(0);
   transition: all 0.35s ease-in-out;
   opacity: 1;
 }
 
-.finalSteps-enter-from,
-.finalSteps-leave-to {
+.finalStepsLeft-enter-from,
+.finalStepsLeft-leave-to {
   position: absolute;
   transform: translateX(500px);
+  opacity: 0;
+}
+
+.finalStepsRight-enter-active,
+.finalStepsRight-leave-active,
+.finalStepsRight-enter-to,
+.finalStepsRight-leave-from {
+  position: static;
+  transform: translateX(0);
+  transition: all 0.35s ease-in-out;
+  opacity: 1;
+}
+
+.finalStepsRight-enter-from,
+.finalStepsRight-leave-to {
+  position: absolute;
+  transform: translateX(-500px);
   opacity: 0;
 }
 </style>

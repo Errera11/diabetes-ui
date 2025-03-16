@@ -36,6 +36,7 @@ const model = defineModel<number | string>()
         >
 
         <label
+          tabindex="0"
           :for="option.value" class="radio-label" :class="{
             'radio-label_lowerLevel': lowerLevelPivot <= index && index < higherLevelPivot,
             'radio-label_higherLevel': higherLevelPivot <= index,

@@ -21,7 +21,7 @@ const model = defineModel<number | string>()
         class="radio-item"
       >
         <div v-if="model === option.value" class="radio-item__check">
-          <span class="pi pi-check-circle radio-item__checkIcon" style="color: #007bff" />
+          <span class="pi pi-check-circle radio-item__checkIcon" />
         </div>
 
         <input
@@ -32,7 +32,7 @@ const model = defineModel<number | string>()
           :value="option.value"
           class="radio-input"
         >
-        <label :for="option.value" class="radio-label">
+        <label :for="option.value" class="radio-label" tabindex="0">
           <div class="radio-label__header">
             <span>{{ option.label }}</span>
           </div>
@@ -51,6 +51,8 @@ const model = defineModel<number | string>()
 </template>
 
 <style lang="scss" scoped>
+@use '/assets/styles/colors';
+
 .radio-item {
   position: relative;
 
@@ -60,6 +62,11 @@ const model = defineModel<number | string>()
     top: -6px;
     right: 12px;
     background-color: white;
+  }
+
+  &__checkIcon {
+    color: colors.$soft-brown !important;
+    font-size: 20px;
   }
 }
 
@@ -117,7 +124,7 @@ const model = defineModel<number | string>()
 }
 
 .radio-input:checked + .radio-label {
-  border-color: #007bff;
+  border-color: #{colors.$soft-brown};
   transition: border-color 0.2s ease;
 }
 </style>

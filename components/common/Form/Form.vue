@@ -22,7 +22,7 @@ import {
 } from '~/utils/validation/form-validation'
 
 const totalSteps = 6
-const { currentStep, nextStep, prevStep, isLastStep } = useSteps({ totalSteps })
+const { currentStep, nextStep, prevStep } = useSteps({ totalSteps })
 const formRef = useTemplateRef<HTMLElement | undefined>('form')
 provide('CURRENT_STEP', currentStep)
 provide('TOTAL_STEPS', totalSteps)
@@ -60,7 +60,7 @@ function onSubmit(values: any) {
     ...formVals,
     ...values,
   }
-  if (isLastStep.value) {
+  if (currentStep.value === 5) {
     mutateAsync({
       ...formVals,
       cholLevel: String(Number.parseFloat(formVals.cholLevel)),
@@ -71,6 +71,8 @@ function onSubmit(values: any) {
       weight: String(Number.parseFloat(formVals.weight)),
       bloodPressure: String(Number.parseFloat(formVals.bloodPressure)),
     }).then((data) => {
+      nextStep()
+
       store.setFormResult({
         result: data.prediction[0],
       })

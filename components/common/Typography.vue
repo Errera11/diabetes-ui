@@ -2,7 +2,7 @@
 interface IProps {
   variant: 'h1' | 'h2' | 'h3' | 'h4' | 'span' | 'sub'
   color?: 'light' | 'dark'
-  weight?: number
+  weight?: number | string
 }
 
 defineProps<IProps>()

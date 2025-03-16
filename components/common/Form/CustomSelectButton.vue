@@ -32,8 +32,8 @@ const model = defineModel<boolean>()
 @use '/assets/styles/colors';
 
 .customSelect {
-  --p-togglebutton-checked-color: #{colors.$brown};
-  --p-togglebutton-checked-background: #{colors.$light-brown};
+  --p-togglebutton-checked-color: #{colors.$light};
+  --p-togglebutton-checked-background: #{colors.$brown};
   display: flex;
   flex-direction: column;
 
