@@ -4,6 +4,7 @@ import { useField } from 'vee-validate'
 import RadioGroup from '~/components/common/Form/RadioGroup.vue'
 import Typography from '~/components/common/Typography.vue'
 import { stepFiveInputs } from '~/utils/validation/form-validation'
+import { stepFiveQuestions } from '../../questions'
 
 const options = [
   {
@@ -43,7 +44,7 @@ const { value, errorMessage } = useField<string>(stepFiveInputs.genHealth)
     </Typography>
 
     <Typography variant="sub">
-      Как бы Вы оценили своё общее состояние здоровья по шкале от 1 до 5, где 1 — отличное, 2 — очень хорошее, 3 — хорошее, 4 — удовлетворительное, 5 — плохое?
+      {{ stepFiveQuestions.physHealthCheck }}
     </Typography>
 
     <RadioGroup v-model="value" :options="options" :is-error="!!errorMessage" :error-message="errorMessage" />

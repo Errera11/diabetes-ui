@@ -4,5 +4,8 @@
   "includes": [
     "assets/styles/scss.d.ts",
     "global.d.ts"
-  ]
+  ],
+  "compilerOptions": {
+    "strict": true
+  }
 }

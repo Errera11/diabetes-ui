@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
 
+import { stepOneQuesitons } from '~/components/common/Form/questions'
 import CustomDatePicker from '~/components/common/Inputs/CustomDatePicker.vue'
 import CustomInput from '~/components/common/Inputs/CustomInput.vue'
 import Typography from '~/components/common/Typography.vue'
@@ -21,7 +22,7 @@ const { value: weight, errorMessage: weightError } = useField<string>(stepOneInp
       Пожалуйста, заполните информацию, чтобы мы могли могли произвести точные вычисления
     </Typography>
 
-    <CustomDatePicker v-model="birthdate" label="Ваша дата рождения" :error-message="bdError" />
+    <CustomDatePicker v-model="birthdate" :label="stepOneQuesitons.birthdate" :error-message="bdError" />
 
     <div>
       <Divider class="formStepOne__divider" />
@@ -31,9 +32,9 @@ const { value: weight, errorMessage: weightError } = useField<string>(stepOneInp
       </Typography>
 
       <div class="formStepOne__buttonGroup">
-        <CustomInput id="height" v-model="height" class="formStepOne__buttonGroupButton" label="Рост" mask="*.** м" :error-message="heightError" />
+        <CustomInput id="height" v-model="height" class="formStepOne__buttonGroupButton" :label="stepOneQuesitons.height" mask="*.** м" :error-message="heightError" />
 
-        <CustomInput id="height" v-model="weight" class="formStepOne__buttonGroupButton" label="Вес" mask="**?* кг" :error-message="weightError" />
+        <CustomInput id="height" v-model="weight" class="formStepOne__buttonGroupButton" :label="stepOneQuesitons.weight" mask="**?* кг" :error-message="weightError" />
       </div>
     </div>
 

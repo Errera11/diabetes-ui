@@ -2,6 +2,7 @@
 import type { IForm } from '~/utils/validation/form-validation'
 import { Form, useForm } from 'vee-validate'
 import { usePostForm } from '~/api/usePostForm'
+import FormError from '~/components/common/Form/FormError.vue'
 import FormLayout from '~/components/common/Form/layouts/FormLayout.vue'
 import FormStepFinal from '~/components/common/Form/StepFinal/FormStepFinal.vue'
 import FormStepFourFive from '~/components/common/Form/StepFourFive/FormStepFourFive.vue'
@@ -47,7 +48,7 @@ const currentValidationSchema = computed(() => {
 const store = useFormStore()
 const { errors } = useForm<IForm>()
 
-const { mutateAsync } = usePostForm()
+const { mutateAsync, isError } = usePostForm()
 let formVals: IForm = { } as IForm
 function onSubmit(values: any) {
   formRef.value?.scrollIntoView({
@@ -73,6 +74,7 @@ function onSubmit(values: any) {
     }).then((data) => {
       nextStep()
 
+      store.setFormData(formVals)
       store.setFormResult({
         result: data.prediction[0],
       })
@@ -88,6 +90,8 @@ function onSubmit(values: any) {
 
 <template>
   <div ref="form" class="formContainer">
+    <FormError v-if="isError" />
+
     <FormLayout :on-back="prevStep">
       <template #content>
         <Form id="form" :validation-schema="currentValidationSchema" :keep-values="true" style="position: relative" @submit="onSubmit">

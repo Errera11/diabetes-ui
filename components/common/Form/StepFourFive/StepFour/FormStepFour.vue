@@ -4,6 +4,7 @@ import { useField } from 'vee-validate'
 import RadioGroup from '~/components/common/Form/RadioGroup.vue'
 import Typography from '~/components/common/Typography.vue'
 import { stepFourInputs } from '~/utils/validation/form-validation'
+import { stepFourQuestions } from '../../questions'
 
 const options = [
   {
@@ -28,7 +29,7 @@ const { value, errorMessage } = useField<string>(stepFourInputs.physActivity)
     </Typography>
 
     <Typography variant="sub">
-      Помимо работы, занимались ли вы физической активностью минимум 3-4 раза в неделю в течение последнего месяца?
+      {{ stepFourQuestions.physActivity }}
     </Typography>
 
     <RadioGroup v-model="value" :options="options" :error-message="errorMessage" :is-error="!!errorMessage" />

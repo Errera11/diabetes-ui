@@ -39,6 +39,7 @@ export default defineNuxtConfig({
     'nuxt-svgo',
     'nuxt-swiper',
     '@pinia/nuxt',
+    'nuxt-highcharts',
   ],
   vite: {
     css: {

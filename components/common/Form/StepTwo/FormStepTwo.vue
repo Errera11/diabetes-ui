@@ -2,6 +2,7 @@
 import { useField } from 'vee-validate'
 
 import CustomSelectButton from '~/components/common/Form/CustomSelectButton.vue'
+import { stepTwoQuestions } from '~/components/common/Form/questions'
 import CustomInput from '~/components/common/Inputs/CustomInput.vue'
 import Typography from '~/components/common/Typography.vue'
 import { stepTwoInputs } from '~/utils/validation/form-validation.js'
@@ -22,13 +23,13 @@ const { value: heartDisease, errorMessage: heartError } = useField<boolean>(step
       Информация о вашем артериальном давлении, холестерине и состоянии сердечно-сосудистой системы поможет лучше понять ваше самочувствие
     </Typography>
 
-    <CustomInput id="height" v-model="cholLevel" mask="*.** ммоль/л" label="Уровень холестерина" :error-message="cholError" />
+    <CustomInput id="height" v-model="cholLevel" mask="*.** ммоль/л" :label="stepTwoQuestions.cholLevel" :error-message="cholError" />
 
-    <CustomInput id="bloodPressure" v-model="value" mask="*** мм рт. ст." label="Систолическое давление (верхнее)" :error-message="errorMessage" />
+    <CustomInput id="bloodPressure" v-model="value" mask="*** мм рт. ст." :label="stepTwoQuestions.bloodPressure" :error-message="errorMessage" />
 
-    <CustomSelectButton v-model="heartDisease" label="Имеются ли у вас проблемы с сердцем?" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" label-description="йойо" />
+    <CustomSelectButton v-model="heartDisease" :label="stepTwoQuestions.heartDisease" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" label-description="йойо" />
 
-    <CustomSelectButton v-model="diffWalk" label="Испытваете ли вы трудности во время ходьбы?" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="walkError" />
+    <CustomSelectButton v-model="diffWalk" :label="stepTwoQuestions.diffWalk" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="walkError" />
   </div>
 </template>
 

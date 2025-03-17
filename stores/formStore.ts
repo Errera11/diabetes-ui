@@ -27,7 +27,7 @@ export const useFormStore = defineStore('form-store', {
     setFormResult(data: Pick<IFormState, 'result'>) {
       this.result = data.result
     },
-    setFormData(data: Omit<IFormState, 'result'>) {
+    setFormData(data: Omit<IFormState, 'result' | 'isPending'>) {
       this.$state = {
         ...this.$state,
         ...data,

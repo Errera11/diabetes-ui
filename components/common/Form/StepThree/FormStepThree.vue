@@ -4,6 +4,7 @@ import { useField } from 'vee-validate'
 import RadioGroupClassic from '~/components/common/Form/RadioGroupClassic.vue'
 import Typography from '~/components/common/Typography.vue'
 import { stepThreeInputs } from '~/utils/validation/form-validation'
+import { stepThreeQuestions } from '../questions'
 
 const options = [
   {
@@ -42,7 +43,7 @@ const { value, errorMessage } = useField<string>(stepThreeInputs.physHealth)
     </Typography>
 
     <Typography variant="sub">
-      Оцените своё физическое состояние за последние 30 дней: сколько дней вы ощущали недомогание, плохое самочувствие, обострения хронических заболеваний или вовсе перенесли травмы?
+      {{ stepThreeQuestions.physHealth }}
     </Typography>
 
     <RadioGroupClassic v-model="value" :options="options" :error-message="errorMessage" :is-error="!!errorMessage" :custom-sub="[5, 15, 25, 30]" />
