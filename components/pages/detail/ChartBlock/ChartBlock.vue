@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const store = useFormStore()
 
-const chartOptions = {
+const chartOptions = computed(() => ({
   chart: {
     type: 'pie',
   },
@@ -39,7 +39,7 @@ const chartOptions = {
   credits: {
     enabled: false,
   },
-}
+}))
 </script>
 
 <template>

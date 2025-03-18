@@ -16,7 +16,7 @@ const model = defineModel<Date>()
     <InputGroup>
       <InputGroupAddon><span class="pi pi-calendar" /></InputGroupAddon>
       <FloatLabel variant="on">
-        <DatePicker id="birthdate" v-model="model" panel-class="pickerPanel" class="customPicker" :invalid="!!errorMessage" />
+        <DatePicker id="birthdate" v-model="model" panel-class="pickerPanel" class="customPicker" :invalid="!!errorMessage" :max-date="new Date()" date-format="dd/mm/yy" />
         <label for="birthdate" class="label">{{ label }}</label>
       </FloatLabel>
     </InputGroup>

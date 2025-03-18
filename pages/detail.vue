@@ -9,7 +9,7 @@ const store = useFormStore()
 
 <template>
   <div class="largeContainer detailPageWrapper">
-    <Dialog :visible="!c" modal :closable="false">
+    <Dialog :visible="!store.genHealth" modal :closable="false">
       <template #header>
         <Typography variant="h3">
           Произошла ошибка

@@ -8,27 +8,27 @@ import { stepFiveQuestions } from '../../questions'
 
 const options = [
   {
-    value: '5',
+    value: '1',
     image: '/img/person.webp',
     label: 'Отличное',
   },
   {
-    value: '12',
+    value: '2',
     image: '/img/headache.webp',
     label: 'Очень хорошее',
   },
   {
-    value: '18',
+    value: '3',
     image: '/img/leg-pain.webp',
     label: 'Хорошее',
   },
   {
-    value: '24',
+    value: '4',
     image: '/img/person-w-cold.webp',
     label: 'Удовлетворительное',
   },
   {
-    value: '30',
+    value: '5',
     image: '/img/hurt-leg.webp',
     label: 'Плохое',
   },

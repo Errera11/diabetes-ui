@@ -65,7 +65,7 @@ function onSubmit(values: any) {
     mutateAsync({
       ...formVals,
       cholLevel: String(Number.parseFloat(formVals.cholLevel)),
-      height: String(Number.parseInt(formVals.height)),
+      height: String(Number.parseFloat(formVals.height)),
       diffWalk: String(formVals.diffWalk ? 1 : 0),
       heartDisease: String(formVals.heartDisease ? 1 : 0),
       birthdate: new Date(formVals.birthdate).toISOString(),

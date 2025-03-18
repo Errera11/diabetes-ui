@@ -34,7 +34,7 @@ const { value: weight, errorMessage: weightError } = useField<string>(stepOneInp
       <div class="formStepOne__buttonGroup">
         <CustomInput id="height" v-model="height" class="formStepOne__buttonGroupButton" :label="stepOneQuesitons.height" mask="*.** м" :error-message="heightError" />
 
-        <CustomInput id="height" v-model="weight" class="formStepOne__buttonGroupButton" :label="stepOneQuesitons.weight" mask="**?* кг" :error-message="weightError" />
+        <CustomInput id="height" v-model="weight" class="formStepOne__buttonGroupButton" :label="stepOneQuesitons.weight" mask="99?9 кг" :error-message="weightError" />
       </div>
     </div>
 

@@ -8,12 +8,12 @@ import { stepFourQuestions } from '../../questions'
 
 const options = [
   {
-    value: '5',
+    value: false,
     image: '/img/popcorn.webp',
     label: 'Нет',
   },
   {
-    value: '12',
+    value: true,
     image: '/img/park-jog.webp',
     label: 'Да',
   },

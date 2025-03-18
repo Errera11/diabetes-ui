@@ -43,7 +43,7 @@ export const stepFourInputs = {
 }
 export const stepFourSchema = toTypedSchema(
   zod.object({
-    [stepFourInputs.physActivity]: zod.string({ message: 'Введите активность за последние 30 дней' }).min(1, { message: 'Введите активность за последние 30 дней' }),
+    [stepFourInputs.physActivity]: zod.boolean({ message: 'Введите активность за последние 30 дней' }),
   }),
 )
 
