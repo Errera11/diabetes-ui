@@ -72,7 +72,7 @@ jobs:
             docker compose rm -fs
 
             echo "Pullin an image"
-            docker-compose pull
+            docker compose pull
 
             echo "Running an image"
-            docker-compose up -d
+            docker compose up -d
