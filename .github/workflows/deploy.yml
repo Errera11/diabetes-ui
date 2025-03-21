@@ -68,6 +68,9 @@ jobs:
             echo "NUXT_APP_MODEL_URL=${{ secrets.NUXT_APP_MODEL_URL }}" >> .env
             echo "PORT=${{ secrets.PORT }}" >> .env
             
+            echo "Removing existing images"
+            docker compose -f docker-compose-prod.yml down --rmi "all"
+            
             echo "Removing image existing container"
             docker compose -f docker-compose-prod.yml rm -fs
 
