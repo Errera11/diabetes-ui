@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ui:
+    container_name: diabetes-ui
+    image: ${IMAGE_NAME}
+    environment:
+      - PORT=$PORT
+      - NUXT_APP_MODEL_URL=$NUXT_APP_MODEL_URL
+    build:
+      context: .
+    ports:
+      - 127.0.0.1:1313:1313

@@ -20,7 +20,7 @@ jobs:
        - name: Build and push image
          run: |
            export IMAGE_NAME=${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
-           docker compose build
+           docker compose build -f docker-compose-build.yml
            docker compose push
 
   server_update:
@@ -36,7 +36,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          source: "docker-compose.yml"
+          source: "docker-compose-prod.yml"
           target: /usr/diabetes-ui/
 
       - name: Set up SSH agent
@@ -75,4 +75,4 @@ jobs:
             docker compose pull
 
             echo "Running an image"
-            docker compose up -d
+            docker compose -f docker-compose-prod.yml up -d
