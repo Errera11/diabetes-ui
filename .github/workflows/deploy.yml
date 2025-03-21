@@ -69,10 +69,10 @@ jobs:
             echo "PORT=${{ secrets.PORT }}" >> .env
             
             echo "Removing image existing container"
-            docker compose rm -fs
+            docker compose -f docker-compose-prod.yml rm -fs
 
             echo "Pullin an image"
-            docker compose pull
+            docker compose -f docker-compose-prod.yml pull
 
             echo "Running an image"
             docker compose -f docker-compose-prod.yml up -d
