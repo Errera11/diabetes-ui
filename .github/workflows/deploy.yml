@@ -21,7 +21,7 @@ jobs:
          run: |
            export IMAGE_NAME=${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
            docker compose -f docker-compose-build.yml build
-           docker compose push
+           docker compose -f docker-compose-build.yml push
 
   server_update:
     needs: build_and_push
