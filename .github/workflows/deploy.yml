@@ -18,7 +18,9 @@ jobs:
            password: ${{ secrets.DOCKER_SECRET }}
 
        - name: Build image
-         run: docker compose build
+         run: |
+           export IMAGE_NAME=${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
+           docker compose build
 
        - name: Push Docker image
          run: docker compose push
