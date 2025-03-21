@@ -4,6 +4,8 @@ services:
   ui:
     container_name: diabetes-ui
     image: ${IMAGE_NAME}
+    env_file:
+      - .env
     build:
       context: .
     ports:
