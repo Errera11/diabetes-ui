@@ -4,5 +4,7 @@ services:
   ui:
     container_name: diabetes-ui
     image: ${IMAGE_NAME}
+    build:
+      context: .
     ports:
       - 127.0.0.1:1313:1313
