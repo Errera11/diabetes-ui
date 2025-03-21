@@ -60,11 +60,13 @@ jobs:
               echo "ERROR: IMAGE_NAME environment variable is empty"
               exit 1
             fi
+            
+            export IMAGE_NAME=$IMAGE_NAME
 
             echo ${{ secrets.DOCKER_SECRET }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
             
             cd /usr/diabetes-ui/
-            touch .env
+            > .env
             echo "NUXT_APP_MODEL_URL=${{ secrets.NUXT_APP_MODEL_URL }}" >> .env
             echo "PORT=${{ secrets.NUXT_APP_PORT }}" >> .env
             
