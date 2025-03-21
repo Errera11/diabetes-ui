@@ -18,10 +18,10 @@ jobs:
            password: ${{ secrets.DOCKER_SECRET }}
 
        - name: Build image
-         run: docker-compose build --no-start
+         run: docker compose build --no-start
 
        - name: Push Docker image
-         run: docker-compose push
+         run: docker compose push
 
   server_update:
     needs: build_and_push
@@ -65,7 +65,7 @@ jobs:
             echo "PORT=${{ secrets.NUXT_APP_PORT }}" >> .env
             
             echo "Removing image existing container"
-            docker-compose rm -fs
+            docker compose rm -fs
 
             echo "Pullin an image"
             docker-compose pull
