@@ -52,7 +52,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_KEY }}
           envs: IMAGE_NAME
           script: |
             # Check if IMAGE_NAME is empty
