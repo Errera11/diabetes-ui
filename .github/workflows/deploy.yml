@@ -26,7 +26,7 @@ jobs:
 
        - name: Build and push image
          run: |
-           export IMAGE_NAME=${{ steps.meta.outputs.tags }}
+           export IMAGE_NAME="${{ steps.meta.outputs.tags }}"
            docker compose -f docker-compose-build.yml build
            docker compose -f docker-compose-build.yml push
 
