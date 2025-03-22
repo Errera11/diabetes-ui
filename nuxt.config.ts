@@ -43,16 +43,6 @@ export default defineNuxtConfig({
     'nuxt-highcharts',
   ],
   css: ['/assets/styles/index.scss'],
-  // vite: {
-  //   css: ['/assets/styles/index.scss'],
-  //   // css: {
-  //   //   preprocessorOptions: {
-  //   //     scss: {
-  //   //       additionalData: '@use "@/assets/styles/index.scss";',
-  //   //     },
-  //   //   },
-  //   // },
-  // },
   primevue: {
     options: {
       theme: {
