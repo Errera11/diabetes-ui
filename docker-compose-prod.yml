@@ -6,7 +6,7 @@ services:
     image: ${IMAGE_NAME}
     environment:
       PORT: $PORT
-      NUXT_PUBLIC_MODEL_URL: NUXT_PUBLIC_MODEL_URL
+      NUXT_PUBLIC_MODEL_URL: ${NUXT_PUBLIC_MODEL_URL}
     build:
       context: .
     ports:
