@@ -3,7 +3,7 @@ version: '3.8'
 services:
   ui:
     container_name: diabetes-ui
-    image: ${IMAGE_NAME}
+    image: ${IMAGE_NAME}:${TAG}
     environment:
       PORT: $PORT
       NUXT_PUBLIC_MODEL_URL: ${NUXT_PUBLIC_MODEL_URL}

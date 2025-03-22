@@ -17,8 +17,16 @@ jobs:
            username: ${{ secrets.DOCKER_USER }}
            password: ${{ secrets.DOCKER_SECRET }}
 
+       - name: Extract metadata (tags, labels) for Docker
+         id: meta
+         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+         with:
+           images: ${{ secrets.DOCKER_USER }}/${{ secrets.REPO }}
+           tags: latest
+
        - name: Build and push image
          run: |
+           export TAG=${{ steps.meta.outputs.tags }}
            docker compose -f docker-compose-build.yml build
            docker compose -f docker-compose-build.yml push
 
