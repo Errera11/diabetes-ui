@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     public: {
       // eslint-disable-next-line node/prefer-global/process
       modelUrl: process.env.NUXT_PUBLIC_MODEL_URL,
-      testVar: ''
+      testVar: '',
     },
   },
   devtools: { enabled: true },
@@ -42,15 +42,17 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'nuxt-highcharts',
   ],
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/styles/index.scss";',
-        },
-      },
-    },
-  },
+  css: ['/assets/styles/index.scss'],
+  // vite: {
+  //   css: ['/assets/styles/index.scss'],
+  //   // css: {
+  //   //   preprocessorOptions: {
+  //   //     scss: {
+  //   //       additionalData: '@use "@/assets/styles/index.scss";',
+  //   //     },
+  //   //   },
+  //   // },
+  // },
   primevue: {
     options: {
       theme: {

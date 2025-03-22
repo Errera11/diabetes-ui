@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import '~/assets/styles/index.scss'
 import LinkButton from '../components/common/LinkButton.vue'
 
 const links = [
@@ -79,6 +78,7 @@ onUnmounted(() => {
 
   &__links {
     display: flex;
+    gap: 25px;
   }
 
   &__logo {
