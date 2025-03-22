@@ -20,6 +20,7 @@ jobs:
        - name: Build and push image
          run: |
            export IMAGE_NAME=${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
+           export NUXT_APP_MODEL_URL=${{ secrets.NUXT_APP_MODEL_URL }}
            docker compose -f docker-compose-build.yml build
            docker compose -f docker-compose-build.yml push
 
@@ -65,9 +66,6 @@ jobs:
             echo ${{ secrets.DOCKER_SECRET }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
             
             cd /usr/diabetes-ui/
-            > .env
-            echo "NUXT_APP_MODEL_URL=${{ secrets.NUXT_APP_MODEL_URL }}" >> .env
-            echo "PORT=${{ secrets.PORT }}" >> .env
             
             echo "Removing existing images"
             docker compose -f docker-compose-prod.yml down --rmi "all"
