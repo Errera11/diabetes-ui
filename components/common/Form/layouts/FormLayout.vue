@@ -70,6 +70,7 @@ const store = useFormStore()
 
 <style lang="scss" scoped>
 @use '/assets/styles/colors';
+@use '/assets/styles/media';
 
 .formLayout {
   padding: 100px 80px;
@@ -79,6 +80,10 @@ const store = useFormStore()
   margin: 0 auto;
   gap: 35px;
   position: relative;
+
+  @include media.media-tablet {
+    padding: 100px 0;
+  }
 
   &__stepper {
     margin-bottom: 15px;
@@ -108,9 +113,14 @@ const store = useFormStore()
   &__content {
     display: flex;
     align-items: start;
+    flex-direction: row;
     gap: 50px;
     width: 100%;
     position: relative;
+
+    @include media.media-tablet {
+      flex-direction: column;
+    }
   }
 
   &__formWrapper {
@@ -120,6 +130,10 @@ const store = useFormStore()
     flex: 1 0;
     position: relative;
     max-width: 60%;
+
+    @include media.media-tablet {
+      max-width: 100%;
+    }
   }
 
   &__form {
@@ -135,6 +149,11 @@ const store = useFormStore()
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @include media.media-tablet {
+      max-width: 100%;
+      position: static;
+    }
   }
 
   &__pendingState {

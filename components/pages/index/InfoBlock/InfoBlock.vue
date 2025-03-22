@@ -49,17 +49,23 @@ const blocks = [
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@use 'assets/styles/media';
+
 .infoBlock {
   background: url('https://static.wixstatic.com/media/74f558_cd2f85e90b1943d99eff2be092a09b73~mv2.jpeg/v1/fill/w_980,h_822,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/74f558_cd2f85e90b1943d99eff2be092a09b73~mv2.jpeg')
     center center no-repeat fixed;
   background-size: cover;
-  padding: 70px 200px;
+  padding: 70px 0;
   overflow: clip;
+  width: 100%;
 
   &__table {
     padding: 15px 20px;
     background: white;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   &__list {
@@ -69,6 +75,14 @@ const blocks = [
     background: black;
     border: 1px solid black;
     max-width: 100%;
+
+    @include media.media-laptop {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media.media-tablet {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__listItem {

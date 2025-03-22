@@ -41,5 +41,6 @@ html {
 
   @include media.media-laptop {
     max-width: 980px;
+    padding: 20px;
   }
 }

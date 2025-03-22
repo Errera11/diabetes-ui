@@ -55,7 +55,9 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-  .header {
+  @use '/assets/styles/media';
+
+.header {
   position: fixed;
   width: 100%;
   backdrop-filter: blur(10px);
@@ -79,6 +81,10 @@ onUnmounted(() => {
   &__links {
     display: flex;
     gap: 25px;
+
+    @include media.media-tablet {
+      gap: 5px;
+    }
   }
 
   &__logo {
