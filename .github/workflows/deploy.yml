@@ -47,11 +47,12 @@ jobs:
         uses: appleboy/ssh-action@master
         env:
           IMAGE_NAME: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
+          PORT: ${{ secrets.PORT }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          envs: IMAGE_NAME
+          envs: IMAGE_NAME, PORT
           script: |
             # Check if IMAGE_NAME is empty
             if [ -z "$IMAGE_NAME" ]; then
