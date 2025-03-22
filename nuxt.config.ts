@@ -31,6 +31,7 @@ export default defineNuxtConfig({
     public: {
       // eslint-disable-next-line node/prefer-global/process
       modelUrl: process.env.NUXT_PUBLIC_MODEL_URL,
+      testVar: ''
     },
   },
   devtools: { enabled: true },
