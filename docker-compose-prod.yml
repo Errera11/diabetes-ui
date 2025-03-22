@@ -4,8 +4,6 @@ services:
   ui:
     container_name: diabetes-ui
     image: ${IMAGE_NAME}
-    environment:
-      - PORT=$PORT
     build:
       context: .
     ports:
