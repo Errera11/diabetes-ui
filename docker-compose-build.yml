@@ -5,7 +5,7 @@ services:
     container_name: diabetes-ui
     image: ${IMAGE_NAME}
     environment:
-      - PORT=$PORT
+      - NUXT_APP_MODEL_URL=$NUXT_APP_MODEL_URL
     build:
       context: .
     ports:
