@@ -14,7 +14,7 @@ export function usePostForm() {
   }, onMutate: () => {
     store.setPending(true)
   }, mutationFn: async (data: IForm) => {
-    const res = await fetch(`${config.public.MODEL_API_URL}/predict/`, {
+    const res = await fetch(`${config.public.modelUrl}/predict/`, {
       body: JSON.stringify({
         data,
       }),

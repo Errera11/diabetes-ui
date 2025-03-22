@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // eslint-disable-next-line node/prefer-global/process
-      MODEL_API_URL: process.env.NUXT_APP_MODEL_URL,
+      modelUrl: process.env.NUXT_PUBLIC_MODEL_URL,
     },
   },
   devtools: { enabled: true },

@@ -45,14 +45,14 @@ jobs:
       - name: Connect
         uses: appleboy/ssh-action@master
         env:
-          NUXT_APP_MODEL_URL: ${{ secrets.NUXT_APP_MODEL_URL }}
+          NUXT_PUBLIC_MODEL_URL: ${{ secrets.NUXT_PUBLIC_MODEL_URL }}
           IMAGE_NAME: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
           PORT: ${{ secrets.PORT }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          envs: IMAGE_NAME, PORT, NUXT_APP_MODEL_URL
+          envs: IMAGE_NAME, PORT, NUXT_PUBLIC_MODEL_URL
           script: |
             # Check if IMAGE_NAME is empty
             if [ -z "$IMAGE_NAME" ]; then
