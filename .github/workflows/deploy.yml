@@ -19,8 +19,6 @@ jobs:
 
        - name: Build and push image
          run: |
-           export IMAGE_NAME=${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
-           export NUXT_APP_MODEL_URL=${{ secrets.NUXT_APP_MODEL_URL }}
            docker compose -f docker-compose-build.yml build
            docker compose -f docker-compose-build.yml push
 
@@ -47,6 +45,7 @@ jobs:
       - name: Connect
         uses: appleboy/ssh-action@master
         env:
+          NUXT_APP_MODEL_URL: ${{ secrets.NUXT_APP_MODEL_URL }}
           IMAGE_NAME: ${{ secrets.DOCKER_USER }}/${{ secrets.DOCKER_REPO }}
           PORT: ${{ secrets.PORT }}
         with:
