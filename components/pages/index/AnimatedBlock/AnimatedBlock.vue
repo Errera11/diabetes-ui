@@ -42,12 +42,12 @@ function onHerBtnClick() {
 <style lang="css" scoped>
 .animatedBlock {
   max-height: 100%;
-  height: calc(100vh - 150px);
+  height: calc(100% - 150px);
 }
 
 @media screen and (max-width: 768px) {
   .animatedBlock {
-    height: calc(100vh - 100px);
+    height: calc(100% - 100px);
   }
 }
 </style>
