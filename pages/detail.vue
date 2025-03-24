@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import CustomLink from '~/components/common/CustomLink.vue'
 import Typography from '~/components/common/Typography.vue'
 import AdviceBlock from '~/components/pages/detail/AdviceBlock/AdviceBlock.vue'
 import ChartBlock from '~/components/pages/detail/ChartBlock/ChartBlock.vue'
@@ -16,9 +17,9 @@ const store = useFormStore()
         </Typography>
       </template>
 
-      <NuxtLink href="/">
+      <CustomLink link="/">
         На главную
-      </NuxtLink>
+      </CustomLink>
     </Dialog>
 
     <div v-if="store.genHealth" class="detailPage">
@@ -42,6 +43,8 @@ const store = useFormStore()
 </template>
 
 <style lang="scss" scoped>
+@use 'assets/styles/media';
+
 .detailPageWrapper {
   background: rgb(196, 182, 159);
 }
@@ -51,6 +54,10 @@ const store = useFormStore()
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 40px 0;
+
+  @include media.media-tablet {
+    grid-template-columns: 1fr;
+  }
 
   &__right {
     display: flex;

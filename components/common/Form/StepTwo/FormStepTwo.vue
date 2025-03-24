@@ -27,7 +27,7 @@ const { value: heartDisease, errorMessage: heartError } = useField<boolean>(step
 
     <CustomInput id="bloodPressure" v-model="value" mask="**?* мм рт. ст." :label="stepTwoQuestions.bloodPressure" :error-message="errorMessage" />
 
-    <CustomSelectButton v-model="heartDisease" :label="stepTwoQuestions.heartDisease" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" label-description="йойо" />
+    <CustomSelectButton v-model="heartDisease" :label="stepTwoQuestions.heartDisease" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="heartError" label-description="Подсказка" />
 
     <CustomSelectButton v-model="diffWalk" :label="stepTwoQuestions.diffWalk" :options="[{ name: 'Да', value: true }, { name: 'Нет', value: false }]" :error-message="walkError" />
   </div>
