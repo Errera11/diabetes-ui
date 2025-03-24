@@ -48,7 +48,7 @@ const store = useFormStore()
 
         <Button
           v-if="currentStep!
-            > 1" label="шмык" type="button" variant="text" class="formLayout__backBtn" @click="onBack"
+            > 1" type="button" variant="text" class="formLayout__backBtn" @click="onBack"
         >
           <BackArrow />
           <span>Назад</span>

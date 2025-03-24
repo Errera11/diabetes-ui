@@ -49,5 +49,8 @@ export default defineNuxtConfig({
         preset: MyPreset,
       },
     },
+    components: {
+      exclude: ['Form', 'FormField'],
+    },
   },
 })

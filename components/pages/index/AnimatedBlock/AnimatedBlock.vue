@@ -39,25 +39,37 @@ function onHerBtnClick() {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="css" scoped>
+.animatedBlock {
+  max-height: 100%;
+  height: calc(100vh - 150px);
+}
+
+@media screen and (max-width: 768px) {
+  .animatedBlock {
+    height: calc(100vh - 100px);
+  }
+}
+</style>
+
+<style lang="scss" scoped>
 @use 'assets/styles/colors';
 
 .animatedBlock {
   width: 100%;
-  height: max(700px);
   background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFyMTF3eG83b2ZuYXR2cXppNDBiZ3FqcmNwZjNmdmhidHR0YWRvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/321wKleotdr4puJIvk/giphy.gif')
     no-repeat center center fixed;
   background-size: cover;
   position: relative;
 
   &__content {
-    padding: 30px 0;
+    padding: 30px 10px;
     backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 290px;
+    top: 100px;
     position: relative;
     gap: 30px;
     text-align: center;
@@ -81,8 +93,10 @@ function onHerBtnClick() {
     transform: rotate(180deg);
     animation: bounce 2s infinite;
 
-    path {
-      stroke: colors.$light !important;
+    svg {
+      path {
+        stroke: colors.$light !important;
+      }
     }
   }
 

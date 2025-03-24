@@ -12,7 +12,7 @@ export const links = [
     link: '/',
   },
   {
-    label: 'Здоровье',
+    label: 'Конфиденциальность',
     link: '/',
   },
 ]

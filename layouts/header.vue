@@ -19,7 +19,7 @@ function onScroll() {
 }
 
 const isMobileSidebar = ref(false)
-function onSidebarOpen() {
+function toggleSidebar() {
   isMobileSidebar.value = !isMobileSidebar.value
 
   if (isMobileSidebar.value) {
@@ -52,11 +52,11 @@ onUnmounted(() => {
       </ul>
 
       <div class="header__sidebarBtn">
-        <SidebarButton :is-active="isMobileSidebar" @onclick="onSidebarOpen" />
+        <SidebarButton :is-active="isMobileSidebar" @onclick="toggleSidebar" />
       </div>
     </div>
 
-    <MobileSidebar :is-open="isMobileSidebar" @onclose="isMobileSidebar = false" />
+    <MobileSidebar :is-open="isMobileSidebar" @onclose="toggleSidebar" />
   </header>
 </template>
 
