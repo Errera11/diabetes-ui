@@ -31,6 +31,10 @@ html {
   &__main {
     flex: 1;
     margin-top: 150px;
+
+    @include media.media-tablet {
+      margin-top: 75px;
+    }
   }
 }
 
@@ -43,4 +47,8 @@ html {
     max-width: 980px;
     padding: 20px;
   }
+}
+
+body {
+  scrollbar-gutter: stable;
 }

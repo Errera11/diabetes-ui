@@ -1,24 +1,9 @@
 <script setup lang="ts">
+import { links } from '@/assets/header-links'
+import MobileSidebar from '~/components/layout/MobileSidebar.vue'
+import SidebarButton from '~/components/layout/SidebarButton.vue'
+import { useMedia } from '~/composables/useMedia'
 import LinkButton from '../components/common/LinkButton.vue'
-
-const links = [
-  {
-    label: 'Главная',
-    link: '/',
-  },
-  {
-    label: 'Подробнее',
-    link: '/',
-  },
-  {
-    label: 'Здоровье',
-    link: '/',
-  },
-  {
-    label: 'Здоровье',
-    link: '/',
-  },
-]
 
 const isHeaderVisible = ref(true)
 let prevScroll = 0
@@ -39,18 +24,28 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
+
+const { isTablet } = useMedia()
+const isMobileSidebar = ref(false)
 </script>
 
 <template>
   <header class="header" :class="{ header_visible: isHeaderVisible }">
     <div class="header__content largeContainer">
       <img class="header__logo" src="/public/img/logo/logo.png" alt="logo">
-      <ul class="header__links">
+
+      <ul v-if="!isTablet" class="header__links">
         <li v-for="item in links" :key="item.label">
           <LinkButton :link="item.link" :label="item.label" />
         </li>
       </ul>
+
+      <div class="header__sidebarBtn">
+        <SidebarButton v-if="isTablet" :is-active="isMobileSidebar" @click="isMobileSidebar = !isMobileSidebar" />
+      </div>
     </div>
+
+    <MobileSidebar :is-open="isMobileSidebar" @onclose="isMobileSidebar = false" />
   </header>
 </template>
 
@@ -66,6 +61,13 @@ onUnmounted(() => {
   transition: top 0.3s ease-in-out;
   z-index: 100;
 
+  &__sidebarBtn {
+    position: absolute;
+    z-index: 310;
+    top: 35px;
+    right: 25px;
+  }
+
   &_visible {
     top: 0;
   }
@@ -76,6 +78,13 @@ onUnmounted(() => {
     flex-direction: column;
     gap: 25px;
     align-items: center;
+
+    @include media.media-tablet {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 15px 20px;
+    }
   }
 
   &__links {

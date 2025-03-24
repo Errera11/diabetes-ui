@@ -56,7 +56,7 @@ const blocks = [
   background: url('https://static.wixstatic.com/media/74f558_cd2f85e90b1943d99eff2be092a09b73~mv2.jpeg/v1/fill/w_980,h_822,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/74f558_cd2f85e90b1943d99eff2be092a09b73~mv2.jpeg')
     center center no-repeat fixed;
   background-size: cover;
-  padding: 70px 0;
+  padding: 70px 20px;
   overflow: clip;
   width: 100%;
 
@@ -66,6 +66,10 @@ const blocks = [
     max-width: 800px;
     width: 100%;
     margin: 0 auto;
+
+    @include media.media-tablet {
+      padding: 10px 10px;
+    }
   }
 
   &__list {
@@ -91,6 +95,11 @@ const blocks = [
     display: flex;
     flex-direction: column;
     gap: 20px;
+    text-align: justify;
+
+    @include media.media-tablet {
+      padding: 30px 20px;
+    }
   }
 }
 </style>

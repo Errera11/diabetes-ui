@@ -26,7 +26,11 @@ h1 {
   font-size: 60px;
 
   @include media.media-tablet {
-    font-size: 45px;
+    font-size: 40px;
+  }
+
+  @include media.media-mobile {
+    font-size: 30px;
   }
 }
 h2 {
@@ -61,6 +65,10 @@ span {
 sub {
   font-size: 14px;
   font-weight: 300;
+
+  @include media.media-tablet {
+    font-size: 12px;
+  }
 
   @include media.media-tablet {
     font-size: 12px;
