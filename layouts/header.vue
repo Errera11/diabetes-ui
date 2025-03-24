@@ -2,7 +2,6 @@
 import { links } from '@/assets/header-links'
 import MobileSidebar from '~/components/layout/MobileSidebar.vue'
 import SidebarButton from '~/components/layout/SidebarButton.vue'
-import { useMedia } from '~/composables/useMedia'
 import LinkButton from '../components/common/LinkButton.vue'
 
 const isHeaderVisible = ref(true)
@@ -18,15 +17,27 @@ function onScroll() {
 
   prevScroll = scroll
 }
+
+const isMobileSidebar = ref(false)
+function onSidebarOpen() {
+  isMobileSidebar.value = !isMobileSidebar.value
+
+  if (isMobileSidebar.value) {
+    document.body.style.touchAction = 'none'
+    document.body.style.overflow = 'hidden'
+  }
+  else {
+    document.body.style.touchAction = ''
+    document.body.style.overflow = ''
+  }
+}
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll)
 })
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
-
-const { isTablet } = useMedia()
-const isMobileSidebar = ref(false)
 </script>
 
 <template>
@@ -34,14 +45,14 @@ const isMobileSidebar = ref(false)
     <div class="header__content largeContainer">
       <img class="header__logo" src="/public/img/logo/logo.png" alt="logo">
 
-      <ul v-if="!isTablet" class="header__links">
+      <ul class="header__links">
         <li v-for="item in links" :key="item.label">
           <LinkButton :link="item.link" :label="item.label" />
         </li>
       </ul>
 
       <div class="header__sidebarBtn">
-        <SidebarButton v-if="isTablet" :is-active="isMobileSidebar" @click="isMobileSidebar = !isMobileSidebar" />
+        <SidebarButton :is-active="isMobileSidebar" @onclick="onSidebarOpen" />
       </div>
     </div>
 
@@ -66,6 +77,11 @@ const isMobileSidebar = ref(false)
     z-index: 310;
     top: 35px;
     right: 25px;
+    display: none;
+
+    @include media.media-tablet {
+      display: block;
+    }
   }
 
   &_visible {
@@ -92,7 +108,7 @@ const isMobileSidebar = ref(false)
     gap: 25px;
 
     @include media.media-tablet {
-      gap: 5px;
+      display: none;
     }
   }
 

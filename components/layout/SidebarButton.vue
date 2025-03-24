@@ -2,12 +2,16 @@
 interface IProps {
   isActive: boolean
 }
+interface IEmits {
+  onclick: () => void
+}
 
 defineProps<IProps>()
+defineEmits<IEmits>()
 </script>
 
 <template>
-  <button class="sidebarButton" :class="{ sidebarButton_active: isActive }">
+  <button class="sidebarButton" :class="{ sidebarButton_active: isActive }" @click="$emit('onclick')">
     <div />
     <div />
     <div />
@@ -24,6 +28,7 @@ defineProps<IProps>()
   outline: none;
   background: none;
   border: none;
+  cursor: pointer;
 
   & > div {
     width: 30px;

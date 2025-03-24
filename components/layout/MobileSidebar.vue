@@ -11,15 +11,6 @@ interface IEmtis {
 interface IProps {
   isOpen: boolean
 }
-
-watchEffect(() => {
-  if (!window)
-    return
-
-  if (props.isOpen)
-    document.body.style.overflowY = 'hidden'
-  else document.body.style.overflowY = ''
-})
 </script>
 
 <template>
