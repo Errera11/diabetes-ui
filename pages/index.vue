@@ -43,7 +43,6 @@ $page-margin: 50px;
   bottom: 0;
   position: absolute;
   z-index: -1;
-  height: 100%;
 }
 .tipblock {
   background: colors.$brown;

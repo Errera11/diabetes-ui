@@ -57,6 +57,7 @@ function onHerBtnClick() {
 
 .animatedBlock {
   width: 100%;
+  height: 100%;
   background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFyMTF3eG83b2ZuYXR2cXppNDBiZ3FqcmNwZjNmdmhidHR0YWRvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/321wKleotdr4puJIvk/giphy.gif')
     no-repeat center center fixed;
   background-size: cover;
