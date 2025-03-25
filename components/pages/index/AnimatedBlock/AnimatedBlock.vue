@@ -18,30 +18,27 @@ function onHerBtnClick() {
 </script>
 
 <template>
-  <div>
-    <div class="animatedBlock">
-      <div class="animatedBlock__content">
-        <Typography variant="h1" color="light">
-          Предупредите осложнения диабета
-        </Typography>
+  <div class="animatedBlock">
+    <div class="animatedBlock__content">
+      <Typography variant="h1" color="light">
+        Предупредите осложнения диабета
+      </Typography>
 
-        <Typography variant="h4" color="light">
-          Современные технологии и проверенные методы для контроля диабета
-        </Typography>
-      </div>
+      <Typography variant="h4" color="light">
+        Современные технологии и проверенные методы для контроля диабета
+      </Typography>
+    </div>
 
-      <div class="animatedBlock__navigation">
-        <Button class="animatedBlock__navigationButton" label="Попробовать" severity="primary" @click="onHerBtnClick" />
+    <div class="animatedBlock__navigation">
+      <Button class="animatedBlock__navigationButton" label="Попробовать" severity="primary" @click="onHerBtnClick" />
 
-        <Arrow class="animatedBlock__arrow" />
-      </div>
+      <Arrow class="animatedBlock__arrow" />
     </div>
   </div>
 </template>
 
 <style lang="css" scoped>
 .animatedBlock {
-  max-height: 100%;
   height: calc(100% - 150px);
 }
 
@@ -57,7 +54,6 @@ function onHerBtnClick() {
 
 .animatedBlock {
   width: 100%;
-  height: 100%;
   background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFyMTF3eG83b2ZuYXR2cXppNDBiZ3FqcmNwZjNmdmhidHR0YWRvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/321wKleotdr4puJIvk/giphy.gif')
     no-repeat center center fixed;
   background-size: cover;
