@@ -37,22 +37,11 @@ function onHerBtnClick() {
   </div>
 </template>
 
-<style lang="css" scoped>
-.animatedBlock {
-  height: calc(100% - 150px);
-}
-
-@media screen and (max-width: 768px) {
-  .animatedBlock {
-    height: calc(100% - 100px);
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 @use 'assets/styles/colors';
 
 .animatedBlock {
+  height: 100%;
   width: 100%;
   background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFyMTF3eG83b2ZuYXR2cXppNDBiZ3FqcmNwZjNmdmhidHR0YWRvNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/321wKleotdr4puJIvk/giphy.gif')
     no-repeat center center fixed;

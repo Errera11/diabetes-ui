@@ -10,12 +10,14 @@ import Typography from '~/components/common/Typography.vue'
   </footer>
 </template>
 
-<style lang="scss">
-  .footer {
-  height: 100px;
+<style lang="scss" scoped>
+.footer {
+  flex: 1 0 100px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-self: flex-end;
+  margin-top: auto;
 }
 
 .powered {
