@@ -10,17 +10,17 @@ import TipsBlock from '~/components/pages/index/TipsBlock/TipsBlock.vue'
 <template>
   <InkSplash />
 
-  <section class="animatedblock largeContainer">
+  <section v-cloak class="animatedblock largeContainer">
     <AnimatedBlock />
     <div class="overflowbg" />
   </section>
-  <section class="tipblock">
+  <section v-cloak class="tipblock">
     <TipsBlock class="largeContainer" />
   </section>
-  <section class="infoblock">
+  <section v-cloak class="infoblock">
     <InfoBlock class="largeContainer" />
   </section>
-  <section class="formblock">
+  <section v-cloak class="formblock">
     <FormBlock class="largeContainer" />
   </section>
 </template>

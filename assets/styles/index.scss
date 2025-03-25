@@ -40,3 +40,7 @@ html {
     padding: 20px;
   }
 }
+
+[v-cloak] {
+  display: none !important;
+}
