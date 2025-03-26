@@ -20,6 +20,18 @@ const MyPreset = definePreset(Lara, {
             },
           },
         },
+        dark: {
+          root: {
+            primary: {
+              background: 'rgb(139, 115, 85)',
+              hoverBackground: 'rgba(139, 115, 85, 0.45)',
+              activeBackground: 'rgb(139, 115, 85)',
+              borderColor: 'rgb(139, 115, 85)',
+              hoverBorderColor: 'rgba(139, 115, 85, 0.45)',
+              activeBorderColor: 'rgb(139, 115, 85)',
+            },
+          },
+        },
       },
     },
   },
@@ -48,6 +60,7 @@ export default defineNuxtConfig({
       theme: {
         preset: MyPreset,
       },
+      darkModeSelector: '',
     },
     components: {
       exclude: ['Form', 'FormField', 'Editor'],

@@ -9,7 +9,7 @@ const store = useFormStore()
 </script>
 
 <template>
-  <div class="largeContainer detailPageWrapper">
+  <div class="largeContainer detailPageWrapper headerOffset">
     <Dialog :visible="!store.genHealth" modal :closable="false">
       <template #header>
         <Typography variant="h3">

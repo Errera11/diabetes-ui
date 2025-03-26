@@ -45,3 +45,11 @@ html {
 [v-cloak] {
   display: none !important;
 }
+
+.headerOffset {
+  margin-top: 150px;
+
+  @include media.media-tablet {
+    margin-top: 75px;
+  }
+}

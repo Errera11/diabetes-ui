@@ -16,6 +16,7 @@ defineProps<IProps>()
 
 const currentStep = inject<Ref<number>>('CURRENT_STEP')
 const totalSteps = inject<number>('TOTAL_STEPS')
+const isLastStep = inject<number>('IS_LAST_STEP')
 
 const computedCurStep = computed(() => {
   if (currentStep?.value === 4 || currentStep?.value === 5) {
@@ -61,7 +62,7 @@ const store = useFormStore()
         </div>
 
         <div class="formLayout__controlBtns">
-          <Button :loading="store.isPending" class="formLayout__nextBtn" label="Продолжить" type="submit" fluid form="form" />
+          <Button v-if="!isLastStep" :loading="store.isPending" class="formLayout__nextBtn" label="Продолжить" type="submit" fluid form="form" />
         </div>
       </div>
     </div>

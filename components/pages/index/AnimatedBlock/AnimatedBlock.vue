@@ -47,6 +47,9 @@ function onHerBtnClick() {
     no-repeat center center fixed;
   background-size: cover;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__content {
     padding: 30px 10px;
@@ -55,7 +58,6 @@ function onHerBtnClick() {
     display: flex;
     flex-direction: column;
     align-items: center;
-    top: 100px;
     position: relative;
     gap: 30px;
     text-align: center;

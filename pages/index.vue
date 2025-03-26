@@ -9,7 +9,7 @@ import TipsBlock from '~/components/pages/index/TipsBlock/TipsBlock.vue'
 <template>
   <!--  <InkSplash /> -->
 
-  <section class="animatedblock">
+  <section class="animatedblock headerOffset">
     <div class="largeContainer" style="height: 100%">
       <AnimatedBlock />
     </div>
@@ -43,15 +43,6 @@ import TipsBlock from '~/components/pages/index/TipsBlock/TipsBlock.vue'
 @use '/assets/styles/media';
 
 $page-margin: 50px;
-
-.animatedblock {
-  position: relative;
-  margin-top: 150px;
-
-  @include media.media-tablet {
-    margin-top: 75px;
-  }
-}
 
 .infoblock {
   margin-top: $page-margin;

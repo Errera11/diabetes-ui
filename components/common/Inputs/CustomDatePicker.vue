@@ -16,7 +16,7 @@ const model = defineModel<Date>()
     <InputGroup>
       <InputGroupAddon><span class="pi pi-calendar" /></InputGroupAddon>
       <FloatLabel variant="on">
-        <DatePicker id="birthdate" v-model="model" panel-class="pickerPanel" class="customPicker" :invalid="!!errorMessage" :max-date="new Date(new Date().setFullYear(new Date().getFullYear() - 18))" date-format="dd/mm/yy" />
+        <DatePicker id="birthdate" v-model="model" :responsive-options="[{ breakpoint: '400px', numMonths: 1 }]" panel-class="pickerPanel" class="customPicker" :invalid="!!errorMessage" :max-date="new Date(new Date().setFullYear(new Date().getFullYear() - 18))" date-format="dd/mm/yy" />
         <label for="birthdate" class="label">{{ label }}</label>
       </FloatLabel>
     </InputGroup>
@@ -29,11 +29,19 @@ const model = defineModel<Date>()
 
 <style lang="scss">
 @use '/assets/styles/colors';
+@use '/assets/styles/media';
 
 .pickerPanel {
   --p-datepicker-date-selected-background: #{colors.$brown};
   --p-datepicker-month-selected-background: #{colors.$brown};
   --p-datepicker-year-selected-background: #{colors.$brown};
+}
+
+.pickerPanel {
+  @include media.media-tablet {
+    padding: 0 !important;
+    width: 100% !important;
+  }
 }
 </style>
 

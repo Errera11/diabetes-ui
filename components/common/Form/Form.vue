@@ -23,10 +23,11 @@ import {
 } from '~/utils/validation/form-validation'
 
 const totalSteps = 6
-const { currentStep, nextStep, prevStep } = useSteps({ totalSteps })
+const { currentStep, nextStep, prevStep, isLastStep } = useSteps({ totalSteps })
 const formRef = useTemplateRef<HTMLElement | undefined>('form')
 provide('CURRENT_STEP', currentStep)
 provide('TOTAL_STEPS', totalSteps)
+provide('IS_LAST_STEP', isLastStep)
 
 const currentValidationSchema = computed(() => {
   switch (currentStep.value) {
