@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import Typography from '~/components/common/Typography.vue'
 
-const store = useFormStore()
-const currentCase = store.result.indexOf(Math.max(...store.result))
+const props = defineProps<IProps>()
 
+const currentCase = computed(() => props.result.indexOf(Math.max(...props.result)))
+
+interface IProps {
+  result: [number, number, number]
+}
 const cases = [
   {
     title: 'Поздравляем! Ваши показатели находятся в пределах нормы.',
@@ -26,9 +30,9 @@ const cases = [
   },
 ]
 
-const title = cases[currentCase].title
-const description = cases[currentCase].description
-const advices = cases[currentCase].advices
+const title = computed(() => cases[currentCase.value]?.title)
+const description = computed(() => cases[currentCase.value]?.description)
+const advices = computed(() => cases[currentCase.value]?.advices)
 </script>
 
 <template>

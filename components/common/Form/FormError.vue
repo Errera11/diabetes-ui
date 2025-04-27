@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Typography from '~/components/common/Typography.vue'
+
+const view = defineModel<boolean>()
 </script>
 
 <template>
-  <Dialog modal :visible="true" class="formError">
+  <Dialog v-model:visible="view" modal class="formError" :closable="true" :close-on-escape="true">
     <template #header>
       <Typography variant="h3">
         Произошла непредвиденная ошибка

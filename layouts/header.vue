@@ -2,6 +2,7 @@
 import { links } from '@/assets/header-links'
 import MobileSidebar from '~/components/layout/MobileSidebar.vue'
 import SidebarButton from '~/components/layout/SidebarButton.vue'
+import UserBadge from '~/components/layout/UserBadge.vue'
 import LinkButton from '../components/common/LinkButton.vue'
 
 const isHeaderVisible = ref(true)
@@ -54,6 +55,10 @@ onUnmounted(() => {
       <div class="header__sidebarBtn">
         <SidebarButton :is-active="isMobileSidebar" @onclick="toggleSidebar" />
       </div>
+
+      <div class="header__userbadge">
+        <UserBadge />
+      </div>
     </div>
 
     <MobileSidebar :is-open="isMobileSidebar" @onclose="toggleSidebar" />
@@ -94,6 +99,8 @@ onUnmounted(() => {
     flex-direction: column;
     gap: 25px;
     align-items: center;
+    justify-content: center;
+    position: relative;
 
     @include media.media-tablet {
       flex-direction: row;
@@ -114,6 +121,17 @@ onUnmounted(() => {
 
   &__logo {
     height: 40px;
+  }
+
+  &__userbadge {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    display: block;
+
+    @include media.media-tablet {
+      display: none;
+    }
   }
 }
 </style>

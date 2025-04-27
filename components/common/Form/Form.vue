@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { IForm } from '~/utils/validation/form-validation'
 import { Form, useForm } from 'vee-validate'
-import { usePostForm } from '~/api/usePostForm'
 import FormError from '~/components/common/Form/FormError.vue'
 import FormLayout from '~/components/common/Form/layouts/FormLayout.vue'
 import FormStepFinal from '~/components/common/Form/StepFinal/FormStepFinal.vue'
@@ -13,6 +12,7 @@ import FormStepThree from '~/components/common/Form/StepThree/FormStepThree.vue'
 import StepThreeTips from '~/components/common/Form/StepThree/StepThreeTips.vue'
 import FormStepTwo from '~/components/common/Form/StepTwo/FormStepTwo.vue'
 import StepTwoTips from '~/components/common/Form/StepTwo/StepTwoTips.vue'
+import { usePostForm } from '~/composables/usePostForm'
 import { useSteps } from '~/composables/useSteps'
 import {
   stepFiveSchema,
@@ -49,7 +49,7 @@ const currentValidationSchema = computed(() => {
 const store = useFormStore()
 const { errors } = useForm<IForm>()
 
-const { mutateAsync, isError } = usePostForm()
+const { mutateAsync, isError, data } = usePostForm()
 let formVals: IForm = { } as IForm
 function onSubmit(values: any) {
   formRef.value?.scrollIntoView({
@@ -67,18 +67,13 @@ function onSubmit(values: any) {
       ...formVals,
       cholLevel: String(Number.parseFloat(formVals.cholLevel)),
       height: String(Number.parseFloat(formVals.height)),
-      diffWalk: String(formVals.diffWalk ? 1 : 0),
-      heartDisease: String(formVals.heartDisease ? 1 : 0),
+      diffWalk: formVals.diffWalk,
+      heartDisease: formVals.heartDisease,
       birthdate: new Date(formVals.birthdate).toISOString(),
       weight: String(Number.parseFloat(formVals.weight)),
       bloodPressure: String(Number.parseFloat(formVals.bloodPressure)),
-    }).then((data) => {
+    }).then(() => {
       nextStep()
-
-      store.setFormData(formVals)
-      store.setFormResult({
-        result: data.prediction[0],
-      })
     })
 
     return
@@ -87,11 +82,16 @@ function onSubmit(values: any) {
   if (!Object.keys(errors.value).length)
     nextStep()
 }
+
+watch(data, (newData) => {
+  if (newData)
+    store.setFormData(newData as any)
+})
 </script>
 
 <template>
   <div ref="form" class="formContainer">
-    <FormError v-if="isError" />
+    <FormError v-model="isError" />
 
     <FormLayout :on-back="prevStep">
       <template #content>

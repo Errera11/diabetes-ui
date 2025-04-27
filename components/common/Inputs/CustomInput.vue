@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
-
 import CustomErrorMessage from '~/components/common/Form/CustomErrorMessage.vue'
 
 interface IProps {
@@ -8,6 +7,7 @@ interface IProps {
   errorMessage?: string
   label?: string
   mask?: string
+  type?: 'text' | 'password'
 }
 
 defineProps<IProps>()
@@ -20,16 +20,16 @@ const model = defineModel<string>()
     <FloatLabel variant="on">
       <InputText
         v-if="!mask"
-        :id="id"
         v-model="model"
         :invalid="!!errorMessage"
         class="customInput"
         fluid
+        :type="type"
       />
 
       <InputMask
-        v-if="!!mask"
         :id="id"
+        v-if="!!mask"
         v-model="model"
         :mask="mask"
         :invalid="!!errorMessage"

@@ -31,11 +31,11 @@ const store = useFormStore()
 
       <div class="detailPage__right">
         <section>
-          <ChartBlock />
+          <ChartBlock :result="store.result" />
         </section>
 
         <section>
-          <AdviceBlock />
+          <AdviceBlock :result="store.result" />
         </section>
       </div>
     </div>

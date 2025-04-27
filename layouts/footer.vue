@@ -5,7 +5,7 @@ import Typography from '~/components/common/Typography.vue'
 <template>
   <footer class="footer">
     <Typography variant="span" color="dark" class="powered">
-      ©2035 by me. Powered and secured
+      ©2025 by. Powered and secured
     </Typography>
   </footer>
 </template>

@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const store = useFormStore()
+interface IProps {
+  result: number[]
+}
+const props = defineProps<IProps>()
 
 const chartOptions = computed(() => ({
   chart: {
@@ -22,9 +25,9 @@ const chartOptions = computed(() => ({
     {
       name: 'Distribution',
       data: [
-        { name: 'Отсутствие болезни', y: store.result[0] },
-        { name: 'Предиабет', y: store.result[1] },
-        { name: 'Диабет', y: store.result[0] },
+        { name: 'Отсутствие болезни', y: props.result[0] },
+        { name: 'Предиабет', y: props.result[1] },
+        { name: 'Диабет', y: props.result[2] },
       ],
     },
   ],

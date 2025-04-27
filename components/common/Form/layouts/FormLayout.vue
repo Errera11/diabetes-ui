@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import Button from 'primevue/button'
-import ProgressSpinner from 'primevue/progressspinner'
+
 import BackArrow from 'public/icons/back-arrow.svg'
 import { computed, defineProps } from 'vue'
 
+import CustomProgressSpinner from '~/components/common/CustomProgressSpinner.vue'
 import Stepper from '~/components/common/Form/Stepper/Stepper.vue'
 import Typography from '~/components/common/Typography.vue'
 import { useFormStore } from '~/stores/formStore'
@@ -42,9 +43,7 @@ const store = useFormStore()
       </div>
       <div class="formLayout__formWrapper">
         <div v-if="store.isPending" class="formLayout__pendingState">
-          <ProgressSpinner
-            class="formLayout__loader"
-          />
+          <CustomProgressSpinner />
         </div>
 
         <Button
@@ -169,13 +168,6 @@ const store = useFormStore()
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__loader {
-    --p-progressspinner-color-one: #{colors.$soft-beige};
-    --p-progressspinner-color-two: #{colors.$soft-brown};
-    --p-progressspinner-color-three: #{colors.$soft-green};
-    --p-progressspinner-color-four: #{colors.$soft-green};
   }
 }
 </style>

@@ -4,15 +4,11 @@ export const links = [
     link: '/',
   },
   {
-    label: 'Подробнее',
-    link: '/',
+    label: 'Войти',
+    link: '/signin',
   },
   {
-    label: 'Здоровье',
-    link: '/',
-  },
-  {
-    label: 'Конфиденциальность',
-    link: '/',
+    label: 'Создать аккаунт',
+    link: '/signup',
   },
 ]

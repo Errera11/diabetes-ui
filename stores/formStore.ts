@@ -1,5 +1,4 @@
 import type { IForm } from '~/utils/validation/form-validation'
-import { defineStore } from 'pinia'
 
 interface IFormState extends IForm {
   result: [number, number, number]
@@ -27,7 +26,7 @@ export const useFormStore = defineStore('form-store', {
     setFormResult(data: Pick<IFormState, 'result'>) {
       this.result = data.result
     },
-    setFormData(data: Omit<IFormState, 'result' | 'isPending'>) {
+    setFormData(data: Omit<IFormState, 'isPending'>) {
       this.$state = {
         ...this.$state,
         ...data,

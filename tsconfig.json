@@ -6,6 +6,10 @@
     "global.d.ts"
   ],
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "target": "es2023",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["dom", "es2023"]
   }
 }

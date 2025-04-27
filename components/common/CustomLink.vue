@@ -23,7 +23,6 @@ defineProps<IProps>()
   cursor: pointer;
   transition: color 0.4s;
   text-decoration: none;
-  text-underline: none;
 
   &:active {
     color: colors.$light-brown;

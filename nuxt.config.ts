@@ -42,8 +42,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       // eslint-disable-next-line node/prefer-global/process
-      modelUrl: process.env.NUXT_PUBLIC_MODEL_URL,
-      testVar: '',
+      apiUrl: process.env.NUXT_PUBLIC_API_URL,
     },
   },
   devtools: { enabled: true },
@@ -53,17 +52,20 @@ export default defineNuxtConfig({
     'nuxt-swiper',
     '@pinia/nuxt',
     'nuxt-highcharts',
+    '@nuxt/icon',
   ],
   css: ['/assets/styles/index.scss'],
   primevue: {
     options: {
       theme: {
         preset: MyPreset,
+        options: {
+          darkModeSelector: false,
+        },
       },
-      darkModeSelector: '',
     },
     components: {
       exclude: ['Form', 'FormField', 'Editor'],
     },
-  },
+  }
 })
