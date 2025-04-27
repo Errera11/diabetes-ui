@@ -16,6 +16,6 @@ WORKDIR /app
 
 COPY --from=builder /app/.output .output
 
-CMD PORT=$PORT NUXT_PUBLIC_MODEL_URL=$NUXT_PUBLIC_MODEL_URL node .output/server/index.mjs
+CMD PORT=$PORT NUXT_PUBLIC_API_URL=$NUXT_PUBLIC_API_URL node .output/server/index.mjs
 
 
