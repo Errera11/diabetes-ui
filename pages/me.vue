@@ -10,7 +10,7 @@ import { useUserPredictionQuery } from '~/composables/useUserPredictionQuery'
 import { useUserStore } from '~/stores/userStore'
 
 const user = useUserStore()
-const { data, isPending } = useUserPredictionQuery({ enabled: !!user.id })
+const { data, isPending } = useUserPredictionQuery(!!user.id )
 const { mutateAsync } = useDeletePredictionMutation()
 
 function formatDate(dateString) {
