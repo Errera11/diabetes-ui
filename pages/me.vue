@@ -116,7 +116,7 @@ function handleDeletePrediction(id: number) {
   <Toast />
 
   <Transition>
-    <div v-if="isPending || !user.id" class="spinner">
+    <div v-if="isPending" class="spinner">
       <CustomProgressSpinner />
     </div>
 
