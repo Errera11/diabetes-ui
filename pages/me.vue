@@ -7,10 +7,8 @@ import CurrentResult from '~/components/pages/me/CurrentResult/CurrentResult.vue
 import PredictionBlock from '~/components/pages/me/PredictionBlock/PredictionBlock.vue'
 import { useDeletePredictionMutation } from '~/composables/useDeletePredictionMutation'
 import { useUserPredictionQuery } from '~/composables/useUserPredictionQuery'
-import { useUserStore } from '~/stores/userStore'
 
-const user = useUserStore()
-const { data, isPending } = useUserPredictionQuery(!!user.id )
+const { data, isPending } = useUserPredictionQuery()
 const { mutateAsync } = useDeletePredictionMutation()
 
 function formatDate(dateString) {

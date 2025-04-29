@@ -8,11 +8,24 @@ useHead({
   ],
 })
 
-useCurrentUserQuery()
+const { isPending } = useCurrentUserQuery()
 </script>
 
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <div v-if="isPending" class="spinner">
+      <ProgressSpinner />
+    </div>
+    <NuxtPage v-else />
   </NuxtLayout>
 </template>
+
+<style scoped lang="scss">
+.spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
