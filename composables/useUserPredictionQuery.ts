@@ -38,7 +38,7 @@ export interface IUserPrediction {
   createdAt: string
 }
 
-export function useUserPredictionQuery() {
+export function useUserPredictionQuery(enabled: Ref<boolean> = ref(false)) {
   const config = useRuntimeConfig()
   const user = useUserStore()
 
@@ -61,6 +61,6 @@ export function useUserPredictionQuery() {
 
       return d as IUserPrediction[]
     },
-    enabled: true,
+    enabled: enabled.value,
   })
 }

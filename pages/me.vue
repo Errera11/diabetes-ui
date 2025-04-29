@@ -7,8 +7,10 @@ import CurrentResult from '~/components/pages/me/CurrentResult/CurrentResult.vue
 import PredictionBlock from '~/components/pages/me/PredictionBlock/PredictionBlock.vue'
 import { useDeletePredictionMutation } from '~/composables/useDeletePredictionMutation'
 import { useUserPredictionQuery } from '~/composables/useUserPredictionQuery'
+import { useUserStore } from '~/stores/userStore'
 
-const { data, isPending } = useUserPredictionQuery()
+const user = useUserStore()
+const { data, isPending } = useUserPredictionQuery({ enabled: !!user.id })
 const { mutateAsync } = useDeletePredictionMutation()
 
 function formatDate(dateString) {
@@ -116,7 +118,7 @@ function handleDeletePrediction(id: number) {
   <Toast />
 
   <Transition>
-    <div v-if="isPending" class="spinner">
+    <div v-if="isPending || !user.id" class="spinner">
       <CustomProgressSpinner />
     </div>
 
@@ -138,7 +140,7 @@ function handleDeletePrediction(id: number) {
 
       <ChartAccordion v-bind="bmiProps" label="Индекс массы тела" :series="[bmiSeries!]" />
 
-      <ChartAccordion v-bind="diseaseProps" label="Риск диабета" :series="diseaseSeries" type='spline'/>
+      <ChartAccordion v-bind="diseaseProps" label="Риск диабета" :series="diseaseSeries" type="spline" />
 
       <Divider />
 
