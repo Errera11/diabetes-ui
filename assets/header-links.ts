@@ -4,11 +4,7 @@ export const links = [
     link: '/',
   },
   {
-    label: 'Войти',
-    link: '/signin',
-  },
-  {
-    label: 'Создать аккаунт',
-    link: '/signup',
+    label: 'Конфиденциальность',
+    link: '/rules',
   },
 ]
