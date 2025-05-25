@@ -47,7 +47,6 @@ function onSubmit() {
           </Typography>
 
           <LinkButton link="/signin" label="Уже есть аккаунт?" />
-
         </template>
         <template #header>
           <Typography variant="h3">
@@ -89,7 +88,7 @@ function onSubmit() {
 
 .form {
   display: flex;
-  flex-direction: column;
   gap: 20px;
+  flex-direction: column;
 }
 </style>

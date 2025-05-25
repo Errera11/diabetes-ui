@@ -14,22 +14,22 @@ const options = [
   },
   {
     value: '2',
-    image: '/img/headache.webp',
+    image: '/img/stroll.jpeg',
     label: 'Очень хорошее',
   },
   {
     value: '3',
-    image: '/img/leg-pain.webp',
+    image: '/img/goodstate.jpeg',
     label: 'Хорошее',
   },
   {
     value: '4',
-    image: '/img/person-w-cold.webp',
+    image: '/img/badstate.jpeg',
     label: 'Удовлетворительное',
   },
   {
     value: '5',
-    image: '/img/hurt-leg.webp',
+    image: '/img/headache.webp',
     label: 'Плохое',
   },
 ]

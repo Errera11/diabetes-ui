@@ -55,8 +55,14 @@ const qnaList = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+@use 'assets/styles/media';
+
 .details {
   display: flex;
+
+  @include media.media-tablet {
+    flex-direction: column;
+  }
 
   &__left {
     flex: 1 0;

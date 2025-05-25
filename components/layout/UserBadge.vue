@@ -1,22 +1,15 @@
 <script setup lang="ts">
+import { badgeOptions } from 'assets/header-links'
 import Popover from 'primevue/popover'
 import { ref } from 'vue'
 import LinkButton from '~/components/common/LinkButton.vue'
-import Typography from '~/components/common/Typography.vue'
 
+import Typography from '~/components/common/Typography.vue'
+import { useLogoutMutation } from '~/composables/useUserLogoutMutation'
 import DoorIcon from '~/public/icons/door.svg'
 import UserIcon from '~/public/icons/user.svg'
-import {useLogoutMutation} from "~/composables/useUserLogoutMutation";
 
 const user = useUserStore()
-
-const badgeOptions = [{
-  label: 'Профиль',
-  link: 'profile',
-}, {
-  label: 'Личный кабинет',
-  link: 'me',
-}]
 
 const popover = ref()
 function toggle(event) {
@@ -36,7 +29,9 @@ const { mutate, isPending } = useLogoutMutation()
       <Popover ref="popover">
         <div class="user-badge__links" @click="onClick">
           <LinkButton v-for="item in badgeOptions" :label="item.label" :link="item.link" />
-          <Button @click.stop="() => mutate()" severity="secondary" :loading="isPending">Выйти</Button>
+          <Button severity="secondary" :loading="isPending" @click.stop="() => mutate()">
+            Выйти
+          </Button>
         </div>
       </Popover>
 

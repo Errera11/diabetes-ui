@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UserIcon from '@/public/icons/user.svg'
 import Typography from '~/components/common/Typography.vue'
+import {formatDateTime} from "~/utils/date";
 
 const user = useUserStore()
 </script>
@@ -49,7 +50,7 @@ const user = useUserStore()
           </template>
           <template #content>
             <Typography variant="span">
-              {{ new Date(user.createdAt) }}
+              {{ formatDateTime(user.createdAt) }}
             </Typography>
           </template>
         </Card>
@@ -59,13 +60,25 @@ const user = useUserStore()
 </template>
 
 <style lang="scss" scoped>
+@use 'assets/styles/media';
+
 .profile {
   margin-top: 150px;
   width: 100%;
 
+  h2 {
+    margin-bottom: 20px;
+  }
+
   &__info {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    gap: 20px;
+
+    @include media.media-tablet {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    }
   }
 
   &__details {

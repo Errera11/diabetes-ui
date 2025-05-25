@@ -23,12 +23,18 @@
 
 <style lang="scss" scoped>
 @use '@/assets/styles/colors.scss';
+@use '@/assets/styles/media.scss';
 
 .auth-layout {
   display: flex;
   border-radius: 20px;
   overflow: hidden;
   min-height: 500px;
+
+  @include media.media-tablet {
+    flex-direction: column-reverse;
+    margin: 20px;
+  }
 
   &__left-side {
     display: flex;

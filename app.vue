@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import CustomProgressSpinner from '~/components/common/CustomProgressSpinner.vue'
 import { useCurrentUserQuery } from '~/composables/useCurrentUserQuery'
 
 useHead({
@@ -14,7 +15,7 @@ const { isPending } = useCurrentUserQuery()
 <template>
   <NuxtLayout>
     <div v-if="isPending" class="spinner">
-      <ProgressSpinner />
+      <CustomProgressSpinner />
     </div>
     <NuxtPage v-else />
   </NuxtLayout>

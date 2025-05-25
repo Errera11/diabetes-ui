@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { links } from 'assets/header-links'
+import { badgeOptions, links } from 'assets/header-links'
 import CustomLink from '~/components/common/CustomLink.vue'
 
-const props = defineProps<IProps>()
+defineProps<IProps>()
 defineEmits<IEmtis>()
 
 interface IEmtis {
@@ -20,7 +20,13 @@ interface IProps {
         <div class="mobileSidebar__links">
           <ul class="mobileSidebar__linksList">
             <li v-for="item in links" :key="item.label">
-              <CustomLink :link="item.link">
+              <CustomLink :link="item.link" @click="$emit('onclose')">
+                {{ item.label }}
+              </CustomLink>
+            </li>
+
+            <li v-for="item in badgeOptions" :key="item.label">
+              <CustomLink :link="item.link" @click="$emit('onclose')">
                 {{ item.label }}
               </CustomLink>
             </li>

@@ -68,6 +68,7 @@ const popovers = ref<(typeof Element)[]>([])
 
 <style lang="scss" scoped>
 @use '@/assets/styles/colors';
+@use '@/assets/styles/media';
 
 .prediction-block {
   display: flex;
@@ -78,6 +79,8 @@ const popovers = ref<(typeof Element)[]>([])
     display: flex;
     justify-content: space-between;
     gap: 40px;
+
+
   }
 
   &__popover {
@@ -130,6 +133,10 @@ const popovers = ref<(typeof Element)[]>([])
 
   &__item-result-wrapper {
     flex-direction: row;
+
+    @include media.media-tablet {
+      flex-direction: column;
+    }
   }
 }
 </style>

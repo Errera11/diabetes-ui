@@ -8,3 +8,11 @@ export const links = [
     link: '/rules',
   },
 ]
+
+export const badgeOptions = [{
+  label: 'Профиль',
+  link: 'profile',
+}, {
+  label: 'Личный кабинет',
+  link: 'me',
+}]
