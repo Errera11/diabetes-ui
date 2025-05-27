@@ -11,10 +11,15 @@ interface IEmtis {
 interface IProps {
   isOpen: boolean
 }
+
+const isLoaded = ref(false);
+onMounted(() => {
+  isLoaded.value = true;
+});
 </script>
 
 <template>
-  <teleport to="header">
+  <teleport v-if="isLoaded" to="header">
     <Transition name="side">
       <nav v-if="isOpen" class="mobileSidebar">
         <div class="mobileSidebar__links">
